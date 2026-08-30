@@ -291,6 +291,472 @@
 @media(max-width:700px){
   .progress-stat-card{min-width:calc(50% - 6px)}
 }
+
+.dashboard-stats{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.dashboard-client-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(127,127,127,.15)}
+.dashboard-client-row:last-child{border-bottom:0}
+.compact-progress-stat{min-width:0;flex:1 1 150px;padding:10px 12px}
+.compact-progress-stat b{display:block;font-size:1.05rem;margin-top:2px}
+.compact-progress-stat small{display:block;margin-top:2px}
+@media(max-width:600px){.compact-progress-stat{flex:1 1 calc(50% - 6px);padding:8px 9px}.compact-progress-stat b{font-size:.98rem}}
+
+.progress-svg-wrap{position:relative}
+.progress-point-tooltip{position:absolute;display:none;z-index:5;min-width:132px;max-width:180px;padding:9px 11px;border:1px solid rgba(255,255,255,.18);border-radius:10px;background:rgba(22,25,31,.96);box-shadow:0 8px 24px rgba(0,0,0,.28);pointer-events:none;transform:translateX(-50%);backdrop-filter:blur(6px)}
+.progress-tooltip-date{font-size:12px;opacity:.72;margin-bottom:3px}
+.progress-tooltip-value{font-weight:700;white-space:nowrap}
+.progress-tooltip-rir{font-weight:500;opacity:.85;margin-left:5px}
+.progress-chart-stat.progress-point-detail{display:none!important}
+@media(max-width:600px){
+  .progress-point-tooltip{min-width:120px;padding:7px 9px;font-size:12px}
+}
+
+.routine-sortable.routine-drag-over{border-color:var(--ok);box-shadow:0 0 0 2px rgba(255,255,255,.12)}
+.open-day-row{display:flex;align-items:center;gap:8px;width:100%;margin:6px 0;transition:opacity .12s ease,transform .12s ease}
+.open-day-row.dragging{opacity:.45}
+.open-day-row.open-day-drag-over{outline:2px solid var(--ok);border-radius:12px}
+.open-day-handle{font-size:20px;flex:0 0 30px;text-align:center;cursor:grab}
+.open-day-button{margin:0 !important;width:auto !important;min-width:0}
+.open-day-drop-zone{height:7px;border-radius:8px;transition:all .12s ease}
+.open-day-drop-zone.open-day-drop-active{height:30px;border:1px dashed var(--ok);background:rgba(255,255,255,.04)}
+
+.routine-drag-handle{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;cursor:grab;user-select:none;touch-action:none}
+.routine-drag-handle:active{cursor:grabbing}
+.routine-sortable{user-select:none}
+
+.routine-pointer-dragging{cursor:grabbing!important;user-select:none}
+.routine-drag-handle{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;cursor:grab!important;touch-action:none;user-select:none}
+.routine-drag-handle:active{cursor:grabbing!important}
+.routine-sortable.routine-drag-over{border-color:var(--ok)!important;box-shadow:0 0 0 2px rgba(255,255,255,.14)}
+.routine-sortable.dragging{opacity:.45;transform:scale(.99)}
+
+#mine .routine-order-zone{height:12px;min-height:12px}
+#mine .routine-order-zone-active{height:36px;min-height:36px;border:2px dashed var(--ok);background:rgba(255,255,255,.05);margin:4px 0}
+#mine .routine-sortable.drag-over{border-color:var(--ok)!important;box-shadow:0 0 0 2px rgba(255,255,255,.15)}
+#mine .routine-drag-handle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;cursor:grab!important;touch-action:none;user-select:none}
+#mine .routine-drag-handle:active{cursor:grabbing!important}
+
+#trainModal .open-day-handle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;touch-action:none;cursor:grab;user-select:none}
+#trainModal .open-day-handle:active{cursor:grabbing}
+#trainModal .open-day-row{touch-action:pan-y}
+#trainModal .open-day-row.dragging{opacity:.45;transform:scale(.99)}
+#trainModal .open-day-row.open-day-drag-over{outline:2px solid var(--ok);border-radius:12px}
+.open-day-pointer-dragging{user-select:none;cursor:grabbing!important}
+
+#trainModal .open-day-handle{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;cursor:grab}
+#trainModal .open-day-row.dragging{opacity:.45;pointer-events:none}
+#trainModal .open-day-row.open-day-drag-over{outline:2px solid var(--ok);outline-offset:2px}
+.open-day-pointer-dragging{user-select:none!important;-webkit-user-select:none!important}
+
+#trainModal .open-day-handle{touch-action:none;-webkit-user-select:none;user-select:none}
+#daysEditor .editor-drag-handle{touch-action:none;-webkit-user-select:none;user-select:none;cursor:grab;display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center}
+#daysEditor .routine-editor-day.dragging,#daysEditor .routine-editor-exercise.dragging{opacity:.45}
+#daysEditor .exercise-row.drag-over,#daysEditor .day-drop-zone.drop-active{outline:2px solid var(--ok);outline-offset:2px}
+.editor-pointer-dragging,.open-day-pointer-dragging{user-select:none!important;-webkit-user-select:none!important}
+
+#daysEditor .editor-drag-placeholder{
+  margin:8px 0;
+  border:2px dashed var(--ok);
+  border-radius:12px;
+  background:rgba(128,128,128,.08);
+  box-sizing:border-box;
+  pointer-events:none;
+}
+#daysEditor .editor-drag-handle{
+  touch-action:none;
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+  cursor:grab;
+  display:inline-flex;
+  width:34px;
+  height:34px;
+  align-items:center;
+  justify-content:center;
+}
+#daysEditor .routine-editor-day.dragging,
+#daysEditor .exercise-row.dragging{
+  opacity:.38;
+}
+.editor-pointer-dragging{
+  user-select:none!important;
+  -webkit-user-select:none!important;
+}
+
+#daysEditor .editor-drag-handle{
+  touch-action:none!important;
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+  cursor:grab;
+  min-width:34px;
+  min-height:34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+#daysEditor .editor-drag-placeholder{
+  display:block;
+  width:100%;
+  margin:8px 0;
+  min-height:46px;
+  border:2px dashed var(--ok);
+  border-radius:12px;
+  background:rgba(128,128,128,.08);
+  box-sizing:border-box;
+  pointer-events:none;
+}
+#daysEditor .routine-editor-day.dragging,
+#daysEditor .exercise-row.dragging{
+  opacity:.35;
+}
+.editor-pointer-dragging{
+  user-select:none!important;
+  -webkit-user-select:none!important;
+}
+
+#mine .routine-drag-handle{
+  touch-action:none!important;
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+  cursor:grab;
+  min-width:34px;
+  min-height:34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+#mine .routine-drag-placeholder{
+  width:100%;
+  margin:8px 0;
+  min-height:70px;
+  border:2px dashed var(--ok);
+  border-radius:14px;
+  background:rgba(128,128,128,.08);
+  box-sizing:border-box;
+  pointer-events:none;
+}
+#mine .routine-sortable.routine-dragging{opacity:.35}
+.routine-pointer-dragging{
+  user-select:none!important;
+  -webkit-user-select:none!important;
+}
+
+#daysEditor .routine-editor-exercise.dragging{opacity:.35}
+#daysEditor .routine-editor-exercise{position:relative}
+
+#daysEditor .editor-drag-placeholder{
+  display:block;width:100%;min-height:46px;margin:8px 0;
+  border:2px dashed var(--ok);border-radius:12px;
+  background:rgba(128,128,128,.08);box-sizing:border-box;
+  pointer-events:none;flex:none;
+}
+#daysEditor .editor-drag-handle{
+  touch-action:none!important;-webkit-user-select:none;user-select:none;
+  -webkit-touch-callout:none;cursor:grab;
+}
+#daysEditor .routine-editor-day.dragging,
+#daysEditor .routine-editor-exercise.dragging{opacity:.35}
+.editor-pointer-dragging{user-select:none!important;-webkit-user-select:none!important}
+
+#mine .routine-drag-handle,#daysEditor .editor-drag-handle{
+  touch-action:none;-webkit-user-select:none;user-select:none;
+  -webkit-touch-callout:none;cursor:grab;
+}
+#mine .routine-drag-placeholder,#daysEditor .editor-drag-placeholder{
+  display:block;width:100%;min-height:46px;margin:8px 0;
+  border:2px dashed var(--ok);border-radius:12px;
+  background:rgba(128,128,128,.08);box-sizing:border-box;pointer-events:none;
+}
+
+#mine .routine-order-zone{
+  min-height:10px;
+  margin:3px 0;
+  border-radius:10px;
+  transition:min-height .12s ease,background .12s ease,border .12s ease;
+}
+#mine .routine-order-zone.routine-order-zone-active{
+  min-height:52px;
+  border:2px dashed var(--ok);
+  background:rgba(128,128,128,.08);
+}
+#mine .routine-drag-handle,#daysEditor .editor-drag-handle{
+  touch-action:none!important;
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+}
+#mine .routine-drag-placeholder,#daysEditor .editor-drag-placeholder{
+  display:block;width:100%;min-height:46px;margin:8px 0;
+  border:2px dashed var(--ok);border-radius:12px;
+  background:rgba(128,128,128,.08);box-sizing:border-box;pointer-events:none;
+}
+
+  width:100%;height:8px;margin:4px 0;border:2px solid transparent;border-radius:10px;
+  box-sizing:border-box;background:transparent;transition:height .08s ease,background .08s ease,border-color .08s ease;
+}
+  height:44px;border-color:var(--ok);background:rgba(128,128,128,.08);
+}
+#mine .routine-sortable.dragging,#daysEditor .routine-editor-day.dragging,#daysEditor .routine-editor-exercise.dragging{opacity:.4}
+
+  width:100%;height:8px;margin:4px 0;border:2px solid transparent;
+  border-radius:10px;background:transparent;box-sizing:border-box;
+}
+  height:44px;border-color:var(--ok);background:rgba(128,128,128,.08);
+}
+
+#mine .routine-order-zone{height:12px;min-height:12px}
+#mine .routine-order-zone-active{
+  height:36px;min-height:36px;border:2px dashed var(--ok);
+  background:rgba(255,255,255,.05);margin:4px 0;border-radius:10px;
+}
+#daysEditor .day-drop-zone{
+  height:10px;margin:3px 0;border-radius:8px;transition:height .12s ease,background .12s ease,border .12s ease;
+}
+#daysEditor .day-drop-zone.drop-active{
+  height:36px;border:2px dashed var(--ok);background:rgba(255,255,255,.05);
+}
+#daysEditor .exercise-drop-zone{
+  height:8px;margin:2px 0;border-radius:6px;transition:height .12s ease,background .12s ease;
+}
+#daysEditor .exercise-drop-zone.drop-active{
+  height:24px;background:rgba(120,160,255,.18);outline:2px dashed var(--accent,#888);outline-offset:-2px;
+}
+
+#daysEditor .day-order-gap{
+  display:block;width:100%;height:12px;margin:4px 0;
+  border:2px solid transparent;border-radius:10px;
+  background:transparent;box-sizing:border-box;
+}
+#daysEditor .day-order-gap.active{
+  height:40px;border-color:var(--ok);
+  background:rgba(255,255,255,.05);
+}
+#daysEditor .routine-editor-day.dragging{opacity:.4}
+
+#daysEditor .day-order-zone{
+  height:12px;min-height:12px;margin:3px 0;border-radius:9px;
+  border:2px solid transparent;box-sizing:border-box;background:transparent;
+}
+#daysEditor .day-order-zone-active{
+  height:38px;min-height:38px;border:2px dashed var(--ok);
+  background:rgba(255,255,255,.05);margin:4px 0;
+}
+#daysEditor .routine-editor-day.dragging{opacity:.45}
+
+#daysEditor .day-sortable{cursor:grab}
+#daysEditor .day-sortable.dragging{opacity:.45;cursor:grabbing}
+#daysEditor .day-sortable input,#daysEditor .day-sortable button{cursor:auto}
+#daysEditor .day-order-zone{
+  height:12px;min-height:12px;margin:3px 0;border-radius:9px;
+  border:2px solid transparent;box-sizing:border-box;background:transparent;
+}
+#daysEditor .day-order-zone-active{
+  height:38px;min-height:38px;border:2px dashed var(--ok);
+  background:rgba(255,255,255,.05);margin:4px 0;
+}
+
+#trainModal .open-day-order-zone{
+  height:12px;min-height:12px;margin:3px 0;border-radius:9px;
+  border:2px solid transparent;box-sizing:border-box;background:transparent;
+}
+#trainModal .open-day-order-zone-active{
+  height:38px;min-height:38px;margin:4px 0;
+  border:2px dashed var(--ok);background:rgba(255,255,255,.05);
+}
+#trainModal .open-day-row.dragging{opacity:.42}
+#trainModal .open-day-handle{cursor:grab}
+#trainModal .open-day-handle:active{cursor:grabbing}
+
+#trainModal .open-day-order-zone{
+  display:block;width:100%;height:10px;min-height:10px;margin:3px 0;
+  border:2px solid transparent;border-radius:9px;box-sizing:border-box;background:transparent;
+}
+#trainModal .open-day-order-zone-active{
+  height:38px;min-height:38px;margin:4px 0;
+  border:2px dashed var(--ok);background:rgba(255,255,255,.05);
+}
+#trainModal .open-day-row{cursor:grab;user-select:none}
+#trainModal .open-day-row.dragging{opacity:.42;cursor:grabbing}
+
+#trainModal .open-day-handle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;cursor:grab!important;
+  -webkit-user-select:none;user-select:none;
+  -webkit-touch-callout:none;
+}
+#trainModal .open-day-handle:active{cursor:grabbing!important}
+#trainModal .open-day-order-zone{
+  display:block;width:100%;height:10px;min-height:10px;margin:3px 0;
+  border:2px solid transparent;border-radius:9px;
+  box-sizing:border-box;background:transparent;
+}
+#trainModal .open-day-order-zone-active{
+  height:38px;min-height:38px;margin:4px 0;
+  border:2px dashed var(--ok);background:rgba(255,255,255,.05);
+}
+#trainModal .open-day-row.dragging{opacity:.42}
+
+#trainModal .open-day-handle{
+  touch-action:none!important;
+  -webkit-user-select:none!important;
+  user-select:none!important;
+  cursor:grab!important;
+}
+#trainModal .open-day-handle:active{cursor:grabbing!important}
+#trainModal .open-day-order-zone{
+  pointer-events:auto;
+  touch-action:none;
+}
+#trainModal .open-day-order-zone-active{
+  height:42px!important;
+  min-height:42px!important;
+  border:2px dashed var(--ok)!important;
+  background:rgba(255,255,255,.06)!important;
+}
+
+@media (max-width:700px){
+  #mine .routine{padding:9px 10px;gap:7px;min-height:58px}
+  #mine .routine .buttons{gap:5px}
+  #mine .routine .buttons .btn{padding:7px 9px;font-size:12px}
+  #mine .routine .drag-handle{width:28px;height:28px;min-width:28px}
+  #mine .routine h3{font-size:16px}
+  #mine .routine .muted{font-size:11px}
+}
+.workout-session-actions{display:flex;justify-content:flex-end;gap:8px;margin-bottom:10px}
+.workout-edit-row{display:flex;align-items:end;gap:8px;margin-top:10px;flex-wrap:wrap}
+.workout-edit-name{font-weight:700;font-size:17px;max-width:100%}
+.set-remove{border:0;background:transparent;color:var(--danger,#ff6b6b);font-size:20px;cursor:pointer;padding:0 4px}
+.open-day-menu{min-width:44px;padding:8px 10px;font-size:20px;line-height:1}
+.workout-reorder-list{display:flex;flex-direction:column}
+.workout-reorder-bar{display:flex;align-items:center;gap:12px;padding:14px 16px;margin:0}
+.workout-reorder-bar b{flex:1;min-width:0}
+.workout-reorder-handle{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;cursor:grab;touch-action:none;user-select:none}
+.workout-reorder-zone{height:10px;min-height:10px;border:2px solid transparent;border-radius:9px;box-sizing:border-box}
+.workout-reorder-zone.active{height:38px;min-height:38px;border:2px dashed var(--ok);background:rgba(255,255,255,.05)}
+.workout-reorder-bar.dragging{opacity:.4}
+
+.workout-reorder-list{gap:0}
+.workout-reorder-bar{
+  border-radius:12px;
+  min-height:56px;
+  transition:opacity .12s ease,transform .12s ease;
+}
+.workout-reorder-handle{
+  flex:0 0 34px;
+  border-radius:9px;
+  touch-action:none!important;
+  -webkit-user-select:none!important;
+  user-select:none!important;
+}
+.workout-reorder-zone{transition:height .08s ease,background .08s ease,border-color .08s ease}
+.workout-reorder-zone.active{height:34px;min-height:34px}
+@media(max-width:700px){
+  .workout-reorder-bar{min-height:52px;padding:11px 12px}
+  .workout-reorder-handle{width:38px;height:38px;flex-basis:38px;font-size:18px}
+  .workout-reorder-zone.active{height:38px;min-height:38px}
+  .workout-session-actions{gap:6px}
+  .workout-session-actions .btn{padding:8px 11px}
+}
+
+#trainModal .train-modal-head{
+  align-items:center;
+  gap:12px;
+}
+#trainModal .train-modal-title{
+  min-width:0;
+  flex:1;
+}
+#trainModal .train-modal-actions{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  flex:0 0 auto;
+}
+#trainModal .train-modal-actions .btn{
+  white-space:nowrap;
+}
+@media(max-width:700px){
+  #trainModal .train-modal-head{gap:8px}
+  #trainModal .train-modal-actions{gap:5px}
+  #trainModal .train-modal-actions .btn{
+    padding:8px 10px;
+    font-size:12px;
+  }
+}
+
+.routine-note-card{margin-bottom:10px}
+.routine-note-head{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:12px;
+}
+.routine-note-title{font-weight:700;margin-bottom:5px}
+.routine-note-text{
+  color:var(--text);
+  white-space:pre-wrap;
+  line-height:1.45;
+  max-width:760px;
+}
+.routine-note-text.empty-note{color:var(--muted);font-style:italic}
+.routine-note-edit{flex:0 0 auto}
+@media(max-width:700px){
+  .routine-note-head{gap:8px}
+  .routine-note-edit{padding:8px 10px;font-size:12px}
+  .routine-note-text{font-size:13px}
+}
+
+.routine-note-modal-sheet{max-width:620px}
+.routine-note-modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.routine-note-input{
+  width:100%;min-height:150px;resize:vertical;box-sizing:border-box;
+  margin-top:16px;padding:13px 14px;border-radius:12px;
+  border:1px solid var(--border);background:var(--input,#111);
+  color:var(--text);font:inherit;line-height:1.5;
+}
+.routine-note-modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+@media(max-width:700px){
+  .routine-note-modal-sheet{width:calc(100% - 24px)}
+  .routine-note-input{min-height:130px}
+}
+
+.routine-note-modal-sheet{padding:18px}
+.routine-note-input:focus{
+  outline:none;
+  border-color:var(--ok);
+  box-shadow:0 0 0 2px rgba(255,255,255,.08);
+}
+
+#routineNoteModal{
+  z-index:9999 !important;
+}
+#routineNoteModal .routine-note-modal-sheet{
+  position:relative;
+  z-index:10000;
+}
+#routineNoteModal.open,
+#routineNoteModal[style*="display: block"],
+#routineNoteModal[style*="display:block"]{
+  z-index:9999 !important;
+}
+
+#routineNoteModal.front-layer{z-index:9999 !important}
+#routineNoteModal.front-layer .routine-note-modal-sheet{z-index:10000 !important}
+
+#trainModal .workout-session-actions .reorder-only:disabled{
+  opacity:.45;
+  cursor:default;
+}
+
+.workout-edit-fields{
+  display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;
+}
+.workout-edit-field{display:flex;flex-direction:column;gap:5px;min-width:150px}
+.workout-edit-field input{min-width:0}
+@media(max-width:700px){
+  .workout-edit-fields{display:grid;grid-template-columns:1fr 110px;align-items:end}
+  .workout-edit-fields .btn{grid-column:1/-1;width:100%}
+  .workout-edit-field{min-width:0}
+}
 </style>
 </head>
 <body>
@@ -338,6 +804,23 @@
     </div>
   </div>
 </div>
+<div id="routineNoteModal" class="modal center">
+  <div class="sheet routine-note-modal-sheet">
+    <div class="routine-note-modal-head">
+      <div>
+        <h2 style="margin:0">Nota de la rutina</h2>
+        <div class="muted">Información general de esta rutina</div>
+      </div>
+      <button class="btn" type="button" onclick="closeM('routineNoteModal')">Cerrar</button>
+    </div>
+    <textarea id="routineNoteInput" class="routine-note-input" maxlength="2000"
+      placeholder="Escribe una nota para esta rutina..." autofocus></textarea>
+    <div class="routine-note-modal-actions">
+      <button class="btn" type="button" onclick="closeM('routineNoteModal')">Cancelar</button>
+      <button class="btn primary" type="button" onclick="saveOpenRoutineNote()">Guardar</button>
+    </div>
+  </div>
+</div>
 <div id="editModal" class="modal center"><div class="sheet"><div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">Editar rutina</h2><button class="btn" onclick="closeM('editModal')">Cerrar</button></div><div id="editor"></div></div></div>
 <div id="clientProgressModal" class="modal center">
   <div class="sheet">
@@ -381,17 +864,41 @@
 </div>
 <div id="trainModal" class="modal">
   <div class="sheet">
-    <div class="dayhead">
-      <div>
+    <div class="dayhead train-modal-head">
+      <div class="train-modal-title">
         <h2 id="trainTitle" style="margin:0">Entrenamiento</h2>
         <div class="muted" id="trainSubtitle"></div>
       </div>
-      <button class="btn" onclick="loadHistory(workoutRoutine?.id).then(showHistory)">Historial</button><button class="btn" id="editOpenRoutineBtn" onclick="editOpenRoutine()">Editar rutina</button><button class="btn" onclick="closeM('trainModal')">Cerrar</button>
+      <div class="train-modal-actions">
+        <button class="btn" onclick="loadHistory(workoutRoutine?.id).then(showHistory)">Historial</button>
+        <button class="btn" onclick="closeM('trainModal')">Cerrar</button>
+      </div>
     </div>
     <div id="trainBody" style="margin-top:12px"></div>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+function simpleSafeAction(fn){
+  if(typeof fn!=='function')return;
+  try{
+    const result=fn();
+    if(result&&typeof result.catch==='function'){
+      result.catch(e=>{console.error(e);toast(e?.message||'Ha ocurrido un error.');});
+    }
+  }catch(e){console.error(e);toast(e?.message||'Ha ocurrido un error.');}
+}
+function simpleSetBusy(el,busy,label){
+  if(!el)return;
+  if(busy){
+    if(!el.dataset.originalText)el.dataset.originalText=el.textContent;
+    el.disabled=true; el.setAttribute('aria-busy','true');
+    if(label)el.textContent=label;
+  }else{
+    el.disabled=false;el.removeAttribute('aria-busy');
+    if(el.dataset.originalText)el.textContent=el.dataset.originalText;
+  }
+}
+</script><script>
 const SUPABASE_URL="https://yvguatdqncadkwewlepe.supabase.co";
 const SUPABASE_KEY="sb_publishable_VYoUECN0MaGIOC2LtGi0iw_C0wqUY-W";
 if(!window.supabase){ throw new Error("Supabase JS no cargó"); }
@@ -801,7 +1308,7 @@ function renderTabs(){
     ? `<button id="tMine" class="active" onclick="view('mine')">Mis rutinas</button>
        <button id="tNew" onclick="view('new')">Crear rutina</button>
        <button id="tClients" onclick="view('clients')">Mis clientes</button><button class="btn icon-trash-btn" id="tTrash" onclick="view('trash')" title="Papelera" aria-label="Abrir papelera">🗑️</button>`
-    : `<button id="tShared" class="active" onclick="view('shared')">Mis rutinas</button>`;
+    : `<button id="tShared" class="active" onclick="view('shared')">Mis rutinas</button><button class="btn icon-trash-btn" id="tTrashClient" onclick="view('trash')" title="Papelera" aria-label="Abrir papelera">🗑️</button>`;
 
   // El cliente ya no tiene un apartado de Historial independiente.
   // El historial se consulta dentro de cada rutina, desde el botón
@@ -813,10 +1320,10 @@ async function reload(){
   if(!user) throw new Error('No hay una sesión activa.');
 
   const r=await db.from('routines')
-    .select('id,name,description,share_code,source_routine_id,created_at,deleted_at')
-    .eq('owner_id',user.id)
-    .is('deleted_at',null)
-    .order('created_at',{ascending:false});
+    .select('id,name,description,share_code,source_routine_id,created_at,deleted_at,routine_order')
+     .eq('owner_id',user.id)
+     .is('deleted_at',null)
+     .order('routine_order',{ascending:true,nullsFirst:false});
 
   if(r.error){
     console.error('Carga de rutinas:',r.error);
@@ -829,6 +1336,7 @@ async function reload(){
     const a=await db.from('routine_assignments')
       .select('*')
       .eq('client_id',user.id)
+      .is('client_deleted_at',null)
       .order('created_at',{ascending:false});
 
     if(a.error){
@@ -839,7 +1347,8 @@ async function reload(){
     assignments=a.data||[];
   }else{
     assignments=[];
-    // Trainer: load assignments for routines owned by this trainer.
+    // Trainer: load exactly the assignments belonging to this trainer.
+    // Keep the same query shape used by the known-working SIMPLE build.
     const mineIds=routines.map(r=>r.id);
     if(mineIds.length){
       const a=await db.from('routine_assignments')
@@ -855,8 +1364,7 @@ async function reload(){
     }else{
       assignments=[];
     }
-  }
-}
+  }}
 
 async function renderTrash(){
   const box=$('trash');
@@ -905,6 +1413,56 @@ async function permanentlyDeleteRoutine(id){
   finally{window.__routineTrashBusy=false}
 }
 
+async function renderClientTrash(){
+  const box=$('trash');if(!box)return;
+  box.innerHTML='<div class="card"><h2 style="margin:0 0 4px">🗑️ Papelera</h2><div class="muted">Rutinas que has quitado de tus rutinas.</div></div><div class="card"><div class="muted">Cargando...</div></div>';
+  try{
+    const key='simple_client_trash_'+user.id;
+    let cached=[];try{cached=JSON.parse(localStorage.getItem(key)||'[]')}catch(_){}
+    if(!Array.isArray(cached))cached=[];
+    const q=await db.from('routine_assignments').select('id,trainer_routine_id,created_at,client_deleted_at')
+      .eq('client_id',user.id).not('client_deleted_at','is',null).order('client_deleted_at',{ascending:false});
+    const rows=q.error?[]:(q.data||[]);
+    const map=new Map();
+    [...cached,...rows].forEach(x=>{if(x?.id)map.set(String(x.id),x)});
+    const assignments=[...map.values()].filter(x=>x?.trainer_routine_id);
+    let html='<div class="card"><h2 style="margin:0 0 4px">🗑️ Papelera</h2><div class="muted">Puedes restaurar las rutinas que hayas quitado por error.</div></div>';
+    let valid=[],count=0;
+    for(const a of assignments){
+      const rr=await db.from('routines').select('id,name,description,deleted_at').eq('id',a.trainer_routine_id).maybeSingle();
+      if(rr.error||!rr.data)continue;
+      count++;valid.push(a);
+      const unavailable=rr.data.deleted_at!=null;
+      const action=unavailable?'<div class="muted">Esta rutina ya no está disponible porque fue eliminada por su entrenador.</div>':`<button class="btn" type="button" onclick="restoreClientRoutine('${a.id}')">↩ Restaurar</button>`;
+      html+=`<div class="card routine"><div><h3>${esc(rr.data.name)}</h3><div class="muted">${esc(rr.data.description||'Sin descripción')}</div><div class="muted" style="margin-top:5px">Quitada: ${new Date(a.client_deleted_at).toLocaleString('es-ES')}</div></div><div class="buttons">${action}</div></div>`;
+    }
+    localStorage.setItem(key,JSON.stringify(valid));
+    if(!count)html+='<div class="card"><div class="empty">La papelera está vacía.</div></div>';
+    box.innerHTML=html;
+  }catch(e){console.error('renderClientTrash:',e);box.innerHTML='<div class="card"><div class="empty">No se pudo cargar la papelera.</div></div>'}
+}
+async function restoreClientRoutine(assignmentId){
+  if(window.__routineTrashBusy)return;
+  window.__routineTrashBusy=true;
+  try{
+    const q=await db.from('routine_assignments').update({client_deleted_at:null})
+      .eq('id',assignmentId).eq('client_id',user.id)
+      .not('client_deleted_at','is',null)
+      .select('id,client_deleted_at').single();
+    if(q.error)throw q.error;
+    if(!q.data||q.data.client_deleted_at!==null)throw new Error('La rutina no se pudo restaurar.');
+    await reload();
+    renderShared();
+    await renderClientTrash();
+    toast('Rutina restaurada');
+  }catch(e){
+    console.error('restoreClientRoutine:',e);
+    toast('No se pudo restaurar la rutina: '+(e.message||'revisa los permisos'));
+  }finally{window.__routineTrashBusy=false}
+}
+
+
+
 function view(v){
   ['mine','new','shared','clients','history','trash'].forEach(x=>{
     if($(x)) $(x).style.display=x===v?'block':'none';
@@ -918,7 +1476,7 @@ function view(v){
   if(v==='new') renderNew();
   if(v==='shared') renderShared();
   if(v==='clients') renderClients();
-  if(v==='trash') renderTrash();
+  if(v==='trash') profile?.role==='client' ? renderClientTrash() : renderTrash();
 }
 
 async function revokeClientRoutine(assignmentId){
@@ -1030,9 +1588,10 @@ function progressMetricLabel(metric){
 }
 
 function formatProgressValue(value,metric){
-  if(metric==='reps')return `${Math.round(value)}`;
-  if(metric==='rir')return Number(value).toFixed(1);
-  return Number(value).toLocaleString('es-ES',{maximumFractionDigits:1});
+  if(value===null||value===undefined||!Number.isFinite(Number(value)))return '—';
+  if(metric==='reps')return `${Math.round(Number(value))} reps`;
+  if(metric==='rir')return `RIR ${Number(value).toFixed(1)}`;
+  return `${Number(value).toLocaleString('es-ES',{maximumFractionDigits:1})} kg`;
 }
 
 let __progressRenderToken=0;
@@ -1051,6 +1610,8 @@ function renderClientProgressChart(){
   let points=getExercisePoints(sourceSessions,exerciseName,metric);
   const pointDetail=$('clientProgressPointDetail');
   if(pointDetail){pointDetail.style.display='none';pointDetail.innerHTML='';}
+  const oldTooltip=$('progressPointTooltip');
+  if(oldTooltip){oldTooltip.style.display='none';oldTooltip.innerHTML='';}
 
   // Never let a huge/dirty history freeze the browser.
   if(points.length>120)points=points.slice(-120);
@@ -1142,11 +1703,12 @@ function renderClientProgressChart(){
     : '';
 
   const pointsSvg=clean.map((p,i)=>`
-    <circle cx="${x(i).toFixed(1)}" cy="${y(p.value).toFixed(1)}" r="4"
-      fill="currentColor" opacity=".95"
+    <circle cx="${x(i).toFixed(1)}" cy="${y(p.value).toFixed(1)}" r="5"
+      fill="currentColor" opacity=".98"
+      stroke="currentColor" stroke-width="1"
       data-progress-index="${i}"
       style="cursor:pointer"
-      onclick="showProgressPoint(${i})"/>
+      onclick="showProgressPoint(${i},this)"/>
   `).join('');
 
   const labels=clean.map((p,i)=>{
@@ -1163,6 +1725,7 @@ function renderClientProgressChart(){
         ${pointsSvg}
         ${labels}
       </svg>
+      <div id="progressPointTooltip" class="progress-point-tooltip" aria-live="polite"></div>
     </div>`;
 
   const first=clean[0],last=clean[clean.length-1];
@@ -1170,97 +1733,154 @@ function renderClientProgressChart(){
   const pct=first.value!==0?(delta/Math.abs(first.value))*100:null;
   const isImprovement=delta>0;
   const trendClass=delta===0?'neutral':(isImprovement?'positive':'negative');
-  const trendText=delta===0?'Sin cambio':(isImprovement?'Mejora':'Empeoramiento');
-  $('clientProgressChartSummary').innerHTML=`
-    <div class="progress-stat-card">
-      <span class="muted">Primera sesión</span>
-      <b>${fmt(first.value)}</b>
-      <small>${first.date.toLocaleDateString('es-ES')}</small>
-    </div>
-    <div class="progress-stat-card">
-      <span class="muted">Última sesión</span>
-      <b>${fmt(last.value)}</b>
-      <small>${last.date.toLocaleDateString('es-ES')}</small>
-    </div>
-    <div class="progress-stat-card">
-      <span class="muted">Mejor marca</span>
-      <b>${fmt(Math.max(...values))}</b>
-      <small>Mejor registro</small>
-    </div>
-    <div class="progress-stat-card ${trendClass}">
-      <span class="muted">${trendText}</span>
-      <b>${delta>0?'+':''}${fmt(delta)}</b>
-      <small>${pct!==null?`${pct>0?'+':''}${pct.toFixed(1)}% respecto a la primera sesión`:''}</small>
-    </div>`;
+  const trendText=delta===0?'Sin cambio':(isImprovement?'Mejora':'Empeoramiento');    const bestPoint=clean.reduce((best,p)=>p.value>best.value?p:best,clean[0]);
+    const deltaLabel=delta>0?`+${formatProgressValue(delta,metric)}`:formatProgressValue(delta,metric);
+    $('clientProgressChartSummary').innerHTML=`
+      <div class="progress-stat-card compact-progress-stat">
+        <span class="muted">Primera sesión</span>
+        <b>${formatProgressValue(first.value,metric)}</b>
+        <small>${first.date.toLocaleDateString('es-ES')}</small>
+      </div>
+      <div class="progress-stat-card compact-progress-stat">
+        <span class="muted">Última sesión</span>
+        <b>${formatProgressValue(last.value,metric)}</b>
+        <small>${last.date.toLocaleDateString('es-ES')}</small>
+      </div>
+      <div class="progress-stat-card compact-progress-stat">
+        <span class="muted">Mejor marca</span>
+        <b>${formatProgressValue(bestPoint.value,metric)}</b>
+        <small>${bestPoint.date.toLocaleDateString('es-ES')}${bestPoint.rir!=null?` · RIR ${Number(bestPoint.rir).toFixed(1)}`:''}</small>
+      </div>
+      <div class="progress-stat-card compact-progress-stat ${trendClass}">
+        <span class="muted">% respecto a la primera</span>
+        <b>${pct!==null?(pct>0?'+':'')+pct.toFixed(1)+'%':'—'}</b>
+        <small>${trendText} · ${deltaLabel}</small>
+      </div>`;
 
   clientProgressChartState.points=clean;
 }
 
-function showProgressPoint(index){
+function showProgressPoint(index,node){
   const p=clientProgressChartState.points?.[index];
-  const el=$('clientProgressPointDetail');
-  if(!p||!el)return;
-  el.style.display='';
-  el.innerHTML=`<b>${p.date.toLocaleDateString('es-ES')}</b> · ${formatProgressValue(p.value,clientProgressChartState.metric)}${p.rir!=null?` · RIR ${Number(p.rir).toFixed(1)}`:''}`;
+  const wrap=$('clientProgressChart');
+  const tooltip=$('progressPointTooltip');
+  if(!p||!wrap||!tooltip)return;
+
+  const value=formatProgressValue(p.value,clientProgressChartState.metric);
+  const rir=p.rir!=null?`<span class="progress-tooltip-rir">RIR ${Number(p.rir).toFixed(1)}</span>`:'';
+  tooltip.innerHTML=`
+    <div class="progress-tooltip-date">${p.date.toLocaleDateString('es-ES')}</div>
+    <div class="progress-tooltip-value">${esc(value)} ${rir}</div>`;
+
+  const svg=wrap.querySelector('svg');
+  if(!svg||!node)return;
+  const vb=svg.viewBox.baseVal;
+  const svgRect=svg.getBoundingClientRect();
+  const wrapRect=wrap.getBoundingClientRect();
+  const cx=Number(node.getAttribute('cx')), cy=Number(node.getAttribute('cy'));
+  const px=svgRect.left+(cx/vb.width)*svgRect.width-wrapRect.left;
+  const py=svgRect.top+(cy/vb.height)*svgRect.height-wrapRect.top;
+
+  tooltip.style.display='block';
+  tooltip.style.left=`${Math.max(8,Math.min(wrapRect.width-170,px))}px`;
+  tooltip.style.top=`${Math.max(8,py-72)}px`;
+
+  const detail=$('clientProgressPointDetail');
+  if(detail){detail.style.display='none';detail.innerHTML='';}
 }
 
 
-function getProgressDays(sessions){
+function getProgressDays(sessions,orderedRoutineDays=[]){
   const map=new Map();
+  const ordered=orderedRoutineDays||[];
+  const byName=new Map(ordered.map(d=>[String(d.name||'').trim().toLowerCase(),String(d.id)]));
+
   (sessions||[]).forEach(s=>{
     const d=s?.data||{};
-    const key=String(d.day_id??d.dayId??s.day??'');
-    const name=String(d.day_name??d.dayName??d.day_title??s.variant??s.day??'Sesión');
-    if(!map.has(key))map.set(key,{key,name,sessions:[]});
+    const rawId=d.day_id??d.dayId??null;
+    const rawName=String(d.day_name??d.dayName??d.day_title??s.variant??s.day??'Sesión').trim();
+    const normalizedName=rawName.toLowerCase();
+    const key=rawId!=null
+      ? String(rawId)
+      : (byName.get(normalizedName)||`name:${normalizedName}`);
+    if(!map.has(key))map.set(key,{key,name:rawName,sessions:[]});
     map.get(key).sessions.push(s);
   });
-  return [...map.values()];
+
+  const order=new Map(ordered.map((d,i)=>[String(d.id),i]));
+  return [...map.values()].sort((a,b)=>{
+    const ai=order.has(String(a.key))?order.get(String(a.key)):999999;
+    const bi=order.has(String(b.key))?order.get(String(b.key)):999999;
+    if(ai!==bi)return ai-bi;
+    const an=String(a.name||'').toLowerCase(),bn=String(b.name||'').toLowerCase();
+    return an.localeCompare(bn,'es');
+  });
 }
 
+function progressPeriodStart(period){
+  const now=new Date();
+  const d=new Date(now);
+  if(period==='week'){
+    const day=(d.getDay()+6)%7;
+    d.setHours(0,0,0,0); d.setDate(d.getDate()-day);
+  }else if(period==='month'){
+    d.setDate(1);d.setHours(0,0,0,0);
+  }else if(period==='quarter'){
+    d.setMonth(Math.floor(d.getMonth()/3)*3,1);d.setHours(0,0,0,0);
+  }else if(period==='year'){
+    d.setMonth(0,1);d.setHours(0,0,0,0);
+  }else return null;
+  return d;
+}
+function filterProgressSessions(sessions,period){
+  const start=progressPeriodStart(period);
+  if(!start)return sessions||[];
+  return (sessions||[]).filter(s=>{
+    const raw=s?.workout_date??s?.date??s?.created_at??s?.data?.workout_date??s?.data?.date??s?.data?.created_at;
+    const d=new Date(raw);
+    return !Number.isNaN(d.getTime())&&d>=start;
+  });
+}
 function setupClientProgressChart(sessions){
   clientProgressChartState.sessions=Array.isArray(sessions)?sessions:[];
-  const routineSelect=$('clientProgressRoutine');
-  const daySelect=$('clientProgressDay');
-  const exerciseSelect=$('clientProgressExercise');
-  const metric=$('clientProgressMetric');
+  const daySelect=$('clientProgressDay'), exerciseSelect=$('clientProgressExercise');
+  const metric=$('clientProgressMetric'), periodSelect=$('clientProgressPeriod');
   if(!exerciseSelect||!metric)return;
 
-  // The opened routine is the routine context. Keep a routine selector only
-  // when the existing UI contains it, otherwise don't change the layout.
-  const days=getProgressDays(clientProgressChartState.sessions);
-  clientProgressChartState.days=days;
+  const allDays=getProgressDays(clientProgressChartState.sessions,clientProgressChartState.orderedRoutineDays||[]);
+  clientProgressChartState.days=allDays;
 
   if(daySelect){
-    daySelect.innerHTML=days.map(d=>`<option value="${esc(d.key)}">${esc(d.name)}</option>`).join('');
-    daySelect.disabled=!days.length;
+    daySelect.innerHTML=allDays.map(d=>`<option value="${esc(d.key)}">${esc(d.name)}</option>`).join('');
+    daySelect.disabled=!allDays.length;
   }
 
   const rebuildExercises=()=>{
-    const key=daySelect?.value??days[0]?.key;
-    const day=days.find(d=>String(d.key)===String(key));
-    const daySessions=day?.sessions||clientProgressChartState.sessions;
+    const period=periodSelect?.value||'month';
+    clientProgressChartState.period=period;
+    const key=daySelect?.value??allDays[0]?.key;
+    const day=allDays.find(d=>String(d.key)===String(key));
+    const periodSessions=filterProgressSessions(day?.sessions||clientProgressChartState.sessions,period);
     clientProgressChartState.selectedDayKey=key;
-    clientProgressChartState.filteredSessions=daySessions;
-    const names=getProgressExercises(daySessions);
+    clientProgressChartState.filteredSessions=periodSessions;
+    const names=getProgressExercises(periodSessions);
     exerciseSelect.innerHTML=names.slice(0,200).map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
     exerciseSelect.disabled=!names.length;
     metric.disabled=!names.length;
     if(names.length)renderClientProgressChart();
     else{
-      $('clientProgressChart').innerHTML='<div class="progress-chart-empty">No hay ejercicios con datos en esta sesión.</div>';
+      $('clientProgressChart').innerHTML='<div class="progress-chart-empty">No hay datos en este periodo para este día.</div>';
       $('clientProgressChartSummary').innerHTML='';
     }
   };
-
   const schedule=()=>{
     clearTimeout(window.__progressDebounce);
     window.__progressDebounce=setTimeout(renderClientProgressChart,80);
   };
-
   exerciseSelect.onchange=schedule;
   metric.onchange=schedule;
   if(daySelect)daySelect.onchange=rebuildExercises;
-
+  if(periodSelect)periodSelect.onchange=rebuildExercises;
   rebuildExercises();
 }
 
@@ -1292,6 +1912,8 @@ async function openRoutineProgress(routineId){
       return;
     }
     subtitle.textContent=`${sessions.length} sesión${sessions.length===1?'':'es'} registrada${sessions.length===1?'':'s'}`;
+    let orderedRoutineDays=[];
+    try{orderedRoutineDays=await days(routineId);}catch(e){console.warn('Orden de días:',e);}
     body.innerHTML=`
       <div class="card" style="margin:0 0 12px">
         <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
@@ -1303,6 +1925,16 @@ async function openRoutineProgress(routineId){
         <div style="margin-bottom:10px"><b style="font-size:18px">Evolución del ejercicio</b>
         <div class="muted">Selecciona el día/sesión y el ejercicio para comparar tus sesiones equivalentes.</div></div>
         <div class="progress-chart-controls"><div>
+            <label for="clientProgressPeriod">Periodo</label>
+            <select id="clientProgressPeriod" class="input">
+              <option value="week">Semana</option>
+              <option value="month" selected>Mes</option>
+              <option value="quarter">Trimestre</option>
+              <option value="year">Año</option>
+              <option value="all">Todo</option>
+            </select>
+          </div>
+          <div>
             <label>Día / sesión</label>
             <select id="clientProgressDay"></select>
           </div>
@@ -1333,6 +1965,7 @@ async function openRoutineProgress(routineId){
               ${e.notes?`<div class="history-notes"><span>Notas:</span> ${esc(e.notes)}</div>`:''}</div>`;
           }).join(''):'<div class="muted">Sin ejercicios registrados.</div>'}</div></details>`;
       }).join('')}`;
+    clientProgressChartState.orderedRoutineDays=orderedRoutineDays;
     setupClientProgressChart(sessions);
   }catch(e){
     console.error('openRoutineProgress:',e);
@@ -1374,6 +2007,9 @@ async function openClientRoutineProgress(clientId,routineId,routineName){
     });
 
     subtitle.textContent=`${sessions.length} sesión${sessions.length===1?'':'es'} registrada${sessions.length===1?'':'s'}`;
+    let orderedRoutineDays=[];
+    try{ orderedRoutineDays=await days(routineId); }
+    catch(e){ console.warn('No se pudo cargar el orden de los días:',e); }
 
     if(!sessions.length){
       body.innerHTML='<div class="empty">El cliente todavía no tiene sesiones registradas de esta rutina.</div>';
@@ -1393,7 +2029,21 @@ async function openClientRoutineProgress(clientId,routineId,routineName){
           <b style="font-size:18px">Evolución del ejercicio</b>
           <div class="muted">Selecciona un ejercicio para ver cómo progresa a lo largo de las sesiones.</div>
         </div>
-        <div class="progress-chart-controls">
+        <div class="progress-chart-controls"><div>
+            <label for="clientProgressPeriod">Periodo</label>
+            <select id="clientProgressPeriod" class="input">
+              <option value="week">Semana</option>
+              <option value="month" selected>Mes</option>
+              <option value="quarter">Trimestre</option>
+              <option value="year">Año</option>
+              <option value="all">Todo</option>
+            </select>
+          </div>
+          <div>
+            <label for="clientProgressDay">Día / sesión</label>
+            <select id="clientProgressDay" class="input"></select>
+          </div>
+          
           <div>
             <label for="clientProgressExercise">Ejercicio</label>
             <select id="clientProgressExercise" class="input"></select>
@@ -1454,6 +2104,7 @@ async function openClientRoutineProgress(clientId,routineId,routineName){
           </div>
         </details>`;
       }).join('')}`;
+    clientProgressChartState.orderedRoutineDays=orderedRoutineDays;
     setupClientProgressChart(sessions);
   }catch(e){
     console.error('openClientRoutineProgress:',e);
@@ -1467,47 +2118,94 @@ async function openClientRoutineProgress(clientId,routineId,routineName){
 async function openClientProfile(clientId){
   if(!user?.id)return toast('Debes iniciar sesión.');
   const cid=String(clientId);
-  const clientAssignments=(assignments||[]).filter(a=>String(a.client_id)===cid);
+
+  // Always refresh this client's assignments directly from Supabase.
+  const aq=await db.from('routine_assignments')
+    .select('id,client_id,trainer_id,trainer_routine_id,client_routine_id,created_at,client_deleted_at')
+    .eq('trainer_id',user.id)
+    .eq('client_id',cid)
+    .order('created_at',{ascending:false});
+
+  if(aq.error){
+    console.error('openClientProfile assignments:',aq.error);
+    return toast('No se pudieron cargar las rutinas del cliente.');
+  }
+
+  const clientAssignments=aq.data||[];
   if(!clientAssignments.length)return toast('Este cliente ya no tiene rutinas asignadas.');
 
   const title=$('clientModalTitle'), subtitle=$('clientModalSubtitle'), body=$('clientModalBody');
   if(!title||!body)return;
+
   title.textContent='Cliente';
   subtitle.textContent='Cargando...';
   body.innerHTML='<div class="muted">Cargando información...</div>';
   openM('clientModal');
 
   try{
-    const p=await db.from('profiles').select('id,name,role').eq('id',cid).maybeSingle();
-    if(p.error)throw p.error;
-    if(!p.data || p.data.role!=='client')throw new Error('Perfil de cliente no encontrado.');
+    // Profile name is useful, but a profile RLS failure must never hide routines.
+    let name='Cliente';
+    try{
+      const rpc=await db.rpc('get_public_profile_names',{p_user_ids:[cid]});
+      const row=(rpc.data||[]).find(x=>String(x.id)===cid);
+      if(row?.name)name=String(row.name).trim()||name;
+    }catch(_){}
 
-    const name=(p.data.name||'').trim()||'Cliente sin nombre';
+    if(name==='Cliente'){
+      try{
+        const pr=await db.from('profiles').select('id,name').eq('id',cid).maybeSingle();
+        if(!pr.error && pr.data?.name)name=String(pr.data.name).trim()||name;
+      }catch(_){}
+    }
+
     title.textContent=name;
     subtitle.textContent=`${clientAssignments.length} rutina${clientAssignments.length===1?'':'s'} asignada${clientAssignments.length===1?'':'s'}`;
 
-    const items=clientAssignments.map(a=>{
-      const routine=routines.find(r=>String(r.id)===String(a.trainer_routine_id));
-      return {assignment:a,routine};
-    }).filter(x=>x.routine);
+    // Fetch the exact assigned trainer routines. Do not rely on the global
+    // routine list, which may be filtered/ordered independently.
+    const routineIds=[...new Set(clientAssignments.map(a=>a.trainer_routine_id).filter(Boolean).map(String))];
+    const routineMap=new Map();
+
+    if(routineIds.length){
+      const rq=await db.from('routines')
+        .select('id,name,description,share_code,source_routine_id,created_at,deleted_at')
+        .in('id',routineIds);
+
+      if(!rq.error){
+        for(const r of (rq.data||[]))routineMap.set(String(r.id),r);
+      }else{
+        console.warn('openClientProfile routines:',rq.error);
+      }
+    }
+
+    // Never discard an assignment merely because the routine-name query was
+    // restricted by RLS. The assignment itself proves which routine was sent.
+    const items=clientAssignments.map(a=>({
+      assignment:a,
+      routine:routineMap.get(String(a.trainer_routine_id)) || {
+        id:a.trainer_routine_id,
+        name:'Rutina asignada',
+        description:''
+      }
+    }));
 
     body.innerHTML=`
       <div class="card" style="margin:0 0 12px">
         <div class="muted">Rutinas asignadas</div>
       </div>
-      ${items.length?items.map(x=>`
+      ${items.map(x=>`
         <div class="card" style="margin:8px 0">
           <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
             <div>
-              <b>${esc(x.routine.name)}</b>
+              <b>${esc(x.routine.name||'Rutina asignada')}</b>
               <div class="muted">Asignada ${new Date(x.assignment.created_at).toLocaleDateString('es-ES')}</div>
             </div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
-              <button class="btn" onclick="openClientRoutineProgress('${cid}','${x.routine.id}','${esc(x.routine.name)}')">Ver progreso</button>
+              <button class="btn" onclick="openClientRoutineProgress('${cid}','${x.routine.id}','${esc(x.routine.name||'Rutina')}')">Ver progreso</button>
               <button class="btn danger" onclick="revokeFromClientProfile('${x.assignment.id}')">Revocar</button>
             </div>
           </div>
-        </div>`).join(''):'<div class="empty">No hay rutinas asignadas.</div>'}`;
+        </div>`).join('')}`;
   }catch(e){
     console.error('openClientProfile:',e);
     body.innerHTML='<div class="error">No se pudo cargar el perfil del cliente.</div>';
@@ -1526,50 +2224,94 @@ async function revokeFromClientProfile(assignmentId){
 async function renderClients(){
   const box=$('clients');
   if(!box)return;
-  box.innerHTML=`<div class="card"><h2 style="margin:0 0 4px">Mis clientes</h2><div class="muted">Clientes con al menos una de tus rutinas asignada.</div><div class="muted" style="margin-top:12px">Cargando...</div></div>`;
+  box.innerHTML=`<div class="card"><h2 style="margin:0 0 4px">Mis clientes</h2><div class="muted">Cargando...</div></div>`;
 
   try{
-    const ids=[...new Set((assignments||[]).map(a=>a.client_id).filter(Boolean))];
+    // IMPORTANT: do not depend on `routines` being loaded correctly.
+    // The assignment table itself contains the trainer_id and client_id,
+    // so this is the authoritative source for the trainer's client list.
+    const q=await db.from('routine_assignments')
+      .select('id,client_id,trainer_id,trainer_routine_id,client_routine_id,created_at,client_deleted_at')
+      .eq('trainer_id',user.id)
+      .order('created_at',{ascending:false});
+
+    if(q.error)throw q.error;
+
+    const activeAssignments=q.data||[];
+    assignments=activeAssignments;
+
+    const ids=[...new Set(
+      activeAssignments.map(a=>a.client_id).filter(Boolean).map(String)
+    )];
 
     if(!ids.length){
       box.innerHTML=`
         <div class="card">
           <h2 style="margin:0 0 4px">Mis clientes</h2>
-          <div class="muted">Clientes con al menos una de tus rutinas asignada.</div>
-          <div class="empty" style="margin-top:14px">
-            Todavía no tienes clientes con rutinas asignadas.
-          </div>
+          <div class="empty" style="margin-top:14px">Todavía no tienes clientes con rutinas asignadas.</div>
         </div>`;
       return;
     }
 
-    const p=await db.from('profiles')
-      .select('id,name,role')
-      .in('id',ids);
+    // Get routine names independently from the global routines array.
+    const routineIds=[...new Set(
+      activeAssignments.map(a=>a.trainer_routine_id).filter(Boolean).map(String)
+    )];
 
-    if(p.error)throw p.error;
+    const routineMap=new Map();
+    if(routineIds.length){
+      const rq=await db.from('routines')
+        .select('id,name,description,deleted_at')
+        .in('id',routineIds);
 
-    const names=new Map((p.data||[]).map(x=>[String(x.id),x.name||'']));
-    // Some older client profiles may have an empty name. Try the public
-    // display-name RPC if the project exposes it; otherwise keep a clear fallback.
-    const missing=[...ids].filter(id=>!String(names.get(String(id))||'').trim());
+      if(!rq.error){
+        for(const r of (rq.data||[]))routineMap.set(String(r.id),r);
+      }else{
+        console.warn('No se pudieron leer nombres de rutinas:',rq.error);
+      }
+    }
+
+    // Names: try public RPC first, then profiles. Neither failure hides clients.
+    const names=new Map();
+
+    try{
+      const rpc=await db.rpc('get_public_profile_names',{p_user_ids:ids});
+      if(!rpc.error){
+        for(const row of (rpc.data||[])){
+          if(row?.id)names.set(String(row.id),row.name||'');
+        }
+      }
+    }catch(err){
+      console.warn('RPC nombres:',err);
+    }
+
+    const missing=ids.filter(id=>!String(names.get(id)||'').trim());
     if(missing.length){
       try{
-        const rpc=await db.rpc('get_public_profile_names',{p_user_ids:missing});
-        if(!rpc.error){
-          for(const row of (rpc.data||[])){
-            if(row?.id) names.set(String(row.id),row.name||'');
+        const prof=await db.from('profiles').select('id,name').in('id',missing);
+        if(!prof.error){
+          for(const row of (prof.data||[])){
+            if(row?.id)names.set(String(row.id),row.name||'');
           }
         }
-      }catch(_){}
+      }catch(err){
+        console.warn('profiles:',err);
+      }
     }
-    const grouped=new Map();
 
-    for(const a of assignments||[]){
+    const grouped=new Map();
+    for(const a of activeAssignments){
       const cid=String(a.client_id);
       if(!grouped.has(cid))grouped.set(cid,[]);
-      const routine=routines.find(r=>String(r.id)===String(a.trainer_routine_id));
-      if(routine)grouped.get(cid).push({assignment:a,routine});
+
+      const routine=routineMap.get(String(a.trainer_routine_id)) ||
+        (routines||[]).find(r=>String(r.id)===String(a.trainer_routine_id)) || {
+          id:a.trainer_routine_id,
+          name:'Rutina asignada',
+          description:''
+        };
+
+      grouped.get(cid).push({assignment:a,routine});
     }
 
     box.innerHTML=`
@@ -1581,7 +2323,7 @@ async function renderClients(){
         <div class="card">
           <div style="display:flex;justify-content:space-between;gap:12px;align-items:center">
             <div>
-              <h3 style="margin:0">${esc((names.get(cid)||'').trim() || 'Cliente sin nombre')}</h3>
+              <h3 style="margin:0">${esc((names.get(cid)||'').trim() || cid)}</h3>
               <div class="muted">${items.length} rutina${items.length===1?'':'s'} asignada${items.length===1?'':'s'}</div>
             </div>
             <button class="btn primary" onclick="openClientProfile('${cid}')">Ver cliente</button>
@@ -1591,7 +2333,7 @@ async function renderClients(){
               <div class="card" style="margin:8px 0;padding:12px">
                 <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
                   <div>
-                    <b>${esc(x.routine.name)}</b>
+                    <b>${esc(x.routine.name||'Rutina asignada')}</b>
                     <div class="muted">Asignada ${new Date(x.assignment.created_at).toLocaleDateString('es-ES')}</div>
                   </div>
                   <button class="btn danger" onclick="revokeClientRoutine('${x.assignment.id}')">Revocar</button>
@@ -1601,12 +2343,136 @@ async function renderClients(){
         </div>`).join('')}`;
   }catch(e){
     console.error('renderClients:',e);
-    box.innerHTML=`<div class="card"><h2>Mis clientes</h2><div class="error">No se pudieron cargar los clientes.</div></div>`;
+    box.innerHTML=`<div class="card">
+      <h2>Mis clientes</h2>
+      <div class="error">Error cargando clientes: ${esc(e?.message||'Error desconocido')}</div>
+    </div>`;
   }
 }
 
 
-function renderMine(){$('mine').innerHTML='<div class="card"><h2 style="margin:0 0 4px">Mis rutinas</h2><div class="muted">Tus rutinas solo pertenecen a tu cuenta.</div></div>'+(routines.length?routines.map(r=>`<div class="card routine"><div><h3>${esc(r.name)}</h3><div class="muted">${esc(r.description||'Sin descripción')}</div></div><div class="buttons"><button class="btn primary" onclick="openRoutine('${r.id}')">Abrir</button><button class="btn" onclick="editRoutine('${r.id}')">Editar</button><button class="btn" onclick="openRoutineProgress('${r.id}')">Progreso</button><button class="btn" onclick="openShare('${r.id}')">Compartir</button><button class="btn danger" onclick="delRoutine('${r.id}')">Eliminar</button></div></div>`).join(''):'<div class="card empty"><b style="color:#fff">No tienes rutinas todavía.</b><div style="margin-top:6px">Crea la primera desde aquí.</div><button class="btn primary" style="margin-top:14px" onclick="view(\'new\')">Crear rutina</button></div>')}
+
+
+let __routineDrag=null;
+function renderMine(){
+  const box=$('mine'); if(!box)return;
+  const header='<div class="card"><h2 style="margin:0 0 4px">Mis rutinas</h2></div>';
+  if(!routines.length){
+    box.innerHTML=header+'<div class="card empty"><b style="color:#fff">No tienes rutinas todavía.</b><div style="margin-top:6px">Crea la primera desde aquí.</div><button class="btn primary" style="margin-top:14px" onclick="view(\'new\')">Crear rutina</button></div>';
+    return;
+  }
+  const cards=routines.map((r,i)=>`
+    <div class="routine-order-zone" ondragover="dragOverRoutineZone(event)" ondrop="dropRoutineAt(event,${i})"></div>
+    <div class="card routine routine-sortable"
+      ondragover="dragOverRoutineCard(event)" ondrop="dropRoutineOnCard(event,${i})">
+      <div style="display:flex;align-items:center;gap:10px;min-width:0">
+        <span class="drag-handle routine-drag-handle" draggable="true"
+          ondragstart="dragRoutineStart(event,${i})"
+          onpointerdown="startRoutinePointerDrag(event,${i})"
+          ondragend="dragRoutineEnd(event)"
+          title="Arrastrar rutina" aria-label="Arrastrar rutina">☷</span>
+        <div style="min-width:0"><h3>${esc(r.name)}</h3><div class="muted">${esc(r.description||'Sin descripción')}</div></div>
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn primary" data-open-routine="${r.id}" onclick="event.preventDefault();event.stopPropagation();openRoutine('${r.id}')">Abrir</button>
+        <button class="btn" onclick="openRoutineProgress('${r.id}')">Progreso</button>
+        <button class="btn" onclick="openShare('${r.id}')">Compartir</button>
+        <button class="btn danger" onclick="delRoutine('${r.id}')">Eliminar</button>
+      </div>
+    </div>`).join('');
+  box.innerHTML=header+cards+`<div class="routine-order-zone routine-order-zone-last" ondragover="dragOverRoutineZone(event)" ondrop="dropRoutineAt(event,${routines.length})"></div>`;
+}
+
+// Reliable routine-open fallback for dynamically rendered routine cards.
+// Captures clicks before drag/drop handlers can interfere.
+document.addEventListener('click',function(e){
+  const btn=e.target.closest?.('[data-open-routine]');
+  if(!btn)return;
+  e.preventDefault();
+  e.stopPropagation();
+  const id=btn.getAttribute('data-open-routine');
+  if(id)openRoutine(id);
+},true);
+
+let __routinePointerDrag=null;
+
+function routineDragCleanup(){
+  const d=__routinePointerDrag;
+  if(!d)return;
+  d.placeholder?.remove();
+  d.card?.classList.remove('routine-dragging');
+  document.body.classList.remove('routine-pointer-dragging');
+  if(d.handle&&d.pointerId!=null){try{d.handle.releasePointerCapture(d.pointerId)}catch(_){}}
+  document.removeEventListener('pointermove',routinePointerMove);
+  document.removeEventListener('pointerup',routinePointerUp);
+  document.removeEventListener('pointercancel',routinePointerCancel);
+  __routinePointerDrag=null;
+}
+
+function startRoutinePointerDrag(e,index){
+  if(profile?.role!=='trainer'||__routinePointerDrag)return;
+  if(e.pointerType!=='touch' && e.pointerType!=='pen')return;
+  e.preventDefault();e.stopPropagation();
+
+  const handle=e.currentTarget;
+  const card=handle.closest('.routine-sortable');
+  if(!card)return;
+
+  const placeholder=document.createElement('div');
+  placeholder.className='routine-drag-placeholder';
+  placeholder.style.height=Math.max(70,card.getBoundingClientRect().height)+'px';
+  card.parentNode.insertBefore(placeholder,card);
+
+  __routinePointerDrag={
+    index:Number(index),handle,card,placeholder,pointerId:e.pointerId,
+    startX:e.clientX,startY:e.clientY,active:false,target:null
+  };
+
+  try{handle.setPointerCapture(e.pointerId)}catch(_){}
+  document.addEventListener('pointermove',routinePointerMove,{passive:false});
+  document.addEventListener('pointerup',routinePointerUp,{passive:false});
+  document.addEventListener('pointercancel',routinePointerCancel,{passive:false});
+}
+
+function routinePointerMove(e){
+  const d=__routinePointerDrag;
+  if(!d||e.pointerId!==d.pointerId)return;
+  e.preventDefault();
+
+  if(!d.active){
+    if(Math.hypot(e.clientX-d.startX,e.clientY-d.startY)<7)return;
+    d.active=true;
+    d.card.classList.add('routine-dragging');
+    document.body.classList.add('routine-pointer-dragging');
+  }
+
+  const cards=[...document.querySelectorAll('#mine .routine-sortable')].filter(x=>x!==d.card);
+  let before=null;
+  for(const card of cards){
+    const r=card.getBoundingClientRect();
+    if(e.clientY<r.top+r.height/2){before=card;break}
+  }
+
+  if(before)before.parentNode.insertBefore(d.placeholder,before);
+  else if(cards.length)cards[cards.length-1].parentNode.insertBefore(d.placeholder,cards[cards.length-1].nextSibling);
+
+  d.target=before?Number(before.dataset.routineIndex):routines.length;
+}
+
+async function routinePointerUp(e){
+  const d=__routinePointerDrag;
+  if(!d||e.pointerId!==d.pointerId)return;
+  e.preventDefault();
+
+  const result={active:d.active,from:d.index,to:d.target==null?d.index:d.target};
+  routineDragCleanup();
+  if(!result.active||result.from===result.to||result.from+1===result.to)return;
+
+  await reorderRoutine(result.from,result.to);
+}
+
+function routinePointerCancel(){routineDragCleanup()}
+
 let newDays=[];
 function renderNew(){
   let h=`<div class="card">
@@ -1659,7 +2525,8 @@ async function createRoutine(){
   if(newDays.some(d=>d.exercises.some(e=>!e.name.trim())))return toast('Pon nombre a todos los ejercicios');
   window.__routineSaving=true;
   try{
-    const r=await db.from('routines').insert({owner_id:user.id,name,description:$('rd').value.trim()}).select().single();
+    const nextOrder=(routines||[]).reduce((m,r)=>Math.max(m,Number.isFinite(Number(r.routine_order))?Number(r.routine_order):-1),-1)+1;
+    const r=await db.from('routines').insert({owner_id:user.id,name,description:$('rd').value.trim(),routine_order:nextOrder}).select().single();
     if(r.error)throw r.error;
     try{
       for(let di=0;di<newDays.length;di++){
@@ -1689,65 +2556,97 @@ async function editRoutine(id){if(profile?.role!=='trainer')return toast('Solo e
 function renderEditor(){
   let h='';
   editDays.forEach((d,di)=>{
-    h+=`<div class="card routine-editor-day"
-      ondragover="dragOverDay(event)"
-      ondrop="dropDay(event,${di})">
-
-      <div class="dayhead">
-        <div style="display:flex;align-items:center;gap:9px;min-width:0;flex:1">
-          <span class="drag-handle" draggable="true" title="Arrastrar sesión"
-            ondragstart="dragDayStart(event,${di})" ondragend="dragEndItem(event)">☷</span>
-          <input value="${esc(d.name)}" onchange="editDays[${di}].name=this.value">
-        </div>
-        <button class="btn danger" type="button" onclick="removeDay(${di})">Eliminar</button>
-      </div>
-
-      <div class="exercise-drop-zone"
-        ondragover="dragOverDropZone(event)"
-        ondrop="dropExerciseAt(event,${di},0)"></div>
-
-      ${d.exercises.map((e,ei)=>`
-        <div class="exercise routine-editor-exercise"
-          ondragover="dragOverExercise(event)"
-          ondrop="dropExercise(event,${di},${ei})">
-
-          <div style="display:flex;align-items:flex-start;gap:8px">
-            <span class="drag-handle" draggable="true" title="Arrastrar ejercicio"
-              ondragstart="dragExerciseStart(event,${di},${ei})" ondragend="dragEndItem(event)">☷</span>
-            <div style="flex:1">
-              <div class="grid3">
-                <div><label>Ejercicio</label><input value="${esc(e.name)}" onchange="editDays[${di}].exercises[${ei}].name=this.value"></div>
-                <div><label>Series</label><input type="number" min="1" value="${e.sets||1}" onchange="editDays[${di}].exercises[${ei}].sets=Math.max(1,+this.value||1)"></div>
-                <div><label>Descanso (min)</label><input type="number" min="0" step="0.5" value="${(e.rest_seconds||120)/60}" onchange="editDays[${di}].exercises[${ei}].rest_seconds=(+this.value||0)*60"></div>
-              </div>
-              <div class="grid" style="margin-top:8px">
-                <div><label>Objetivo</label><input value="${esc(e.target||'')}" placeholder="2x10-15" onchange="editDays[${di}].exercises[${ei}].target=this.value"></div>
-                <div><label>RIR</label><input value="${esc(e.rir??'')}" onchange="editDays[${di}].exercises[${ei}].rir=this.value"></div>
-              </div>
-              <div style="margin-top:8px"><label>Notas</label><input value="${esc(e.notes||'')}" onchange="editDays[${di}].exercises[${ei}].notes=this.value"></div>
-            </div>
+    h+=`
+      <div class="day-order-zone" ondragover="dragOverDayZone(event)" ondrop="dropDayAt(event,${di})"></div>
+      <div class="card routine-editor-day day-sortable" data-day-index="${di}"
+        draggable="true"
+        ondragstart="dragDayStart(event,${di})"
+        ondragend="dragEndItem()">
+        <div class="dayhead">
+          <div style="display:flex;align-items:center;gap:9px;min-width:0;flex:1">
+            <span class="drag-handle editor-drag-handle" draggable="true"
+              ondragstart="dragDayStart(event,${di})" ondragend="dragEndItem()"
+              onpointerdown="startEditorPointerDrag(event,'day',${di},null)"
+              title="Arrastrar sesión">☷</span>
+            <input value="${esc(d.name)}" draggable="false"
+              ondragstart="event.preventDefault();event.stopPropagation()"
+              onchange="editDays[${di}].name=this.value">
           </div>
-          <div class="buttons" style="justify-content:flex-end;margin-top:7px">
-            <button class="btn danger" type="button" onclick="removeEx(${di},${ei})">Eliminar ejercicio</button>
-          </div>
+          <button class="btn danger" type="button" draggable="false"
+              ondragstart="event.preventDefault();event.stopPropagation()"
+              onclick="removeDay(${di})">Eliminar</button>
         </div>
 
         <div class="exercise-drop-zone"
           ondragover="dragOverDropZone(event)"
-          ondrop="dropExerciseAt(event,${di},${ei+1})"></div>
-      `).join('')}
+          ondrop="dropExerciseAt(event,${di},0)"></div>
 
-      <button class="btn" type="button" onclick="addEx(${di})">Añadir ejercicio</button>
-    </div>`;
+        ${d.exercises.map((e,ei)=>`
+          <div class="exercise routine-editor-exercise" data-day-index="${di}" data-exercise-index="${ei}"
+            ondragover="dragOverExercise(event)"
+            ondrop="dropExercise(event,${di},${ei})">
+
+            <div style="display:flex;align-items:flex-start;gap:8px">
+              <span class="drag-handle editor-drag-handle" draggable="true"
+                ondragstart="dragExerciseStart(event,${di},${ei})" ondragend="dragEndItem()"
+                onpointerdown="startEditorPointerDrag(event,'exercise',${di},${ei})"
+                title="Arrastrar ejercicio">☷</span>
+              <div style="flex:1">
+                <div class="grid3">
+                  <div><label>Ejercicio</label><input value="${esc(e.name)}" onchange="editDays[${di}].exercises[${ei}].name=this.value"></div>
+                  <div><label>Series</label><input type="number" min="1" value="${e.sets||1}" onchange="editDays[${di}].exercises[${ei}].sets=Math.max(1,+this.value||1)"></div>
+                  <div><label>Descanso (min)</label><input type="number" min="0" step="0.5" value="${(e.rest_seconds||120)/60}" onchange="editDays[${di}].exercises[${ei}].rest_seconds=(+this.value||0)*60"></div>
+                </div>
+                <div class="grid" style="margin-top:8px">
+                  <div><label>Objetivo</label><input value="${esc(e.target||'')}" placeholder="2x10-15" onchange="editDays[${di}].exercises[${ei}].target=this.value"></div>
+                  <div><label>RIR</label><input value="${esc(e.rir??'')}" onchange="editDays[${di}].exercises[${ei}].rir=this.value"></div>
+                </div>
+                <div style="margin-top:8px"><label>Notas</label><input value="${esc(e.notes||'')}" onchange="editDays[${di}].exercises[${ei}].notes=this.value"></div>
+              </div>
+            </div>
+            <div class="buttons" style="justify-content:flex-end;margin-top:7px">
+              <button class="btn danger" type="button" onclick="removeEx(${di},${ei})">Eliminar ejercicio</button>
+            </div>
+          </div>
+
+          <div class="exercise-drop-zone"
+            ondragover="dragOverDropZone(event)"
+            ondrop="dropExerciseAt(event,${di},${ei+1})"></div>
+        `).join('')}
+
+        <button class="btn" type="button" onclick="addEx(${di})">Añadir ejercicio</button>
+      </div>`;
   });
+  h += `<div class="day-order-zone day-order-zone-last"
+        ondragover="dragOverDayZone(event)"
+        ondrop="dropDayAt(event,${editDays.length})"></div>`;
   $('daysEditor').innerHTML=h||'<div class="empty">Añade un día.</div>';
 }
 
+
+let __dayDrag=null;
 function dragDayStart(e,i){
-  __dragItem={type:'day',i};
+  e.stopPropagation();
+  __dayDrag={index:Number(i)};
   e.dataTransfer.effectAllowed='move';
   e.dataTransfer.setData('text/plain','day:'+i);
-  e.currentTarget.classList.add('dragging');
+  e.currentTarget.closest('.routine-editor-day')?.classList.add('dragging');
+  document.querySelectorAll('#daysEditor .day-order-zone').forEach(z=>z.classList.remove('day-order-zone-active'));
+}
+function showExerciseDropGaps(){
+  const box=document.querySelector('#daysEditor');if(!box)return;
+  box.querySelectorAll('.exercise-drop-gap').forEach(x=>x.remove());
+  const rows=[...box.querySelectorAll('.routine-editor-exercise')];
+  for(let i=rows.length;i>=0;i--){
+    const gap=document.createElement('div');gap.className='exercise-drop-gap';
+    gap.ondragover=ev=>{ev.preventDefault();ev.stopPropagation();ev.dataTransfer.dropEffect='move';gap.classList.add('active')};
+    gap.ondragleave=()=>gap.classList.remove('active');
+    gap.ondrop=ev=>{
+      ev.preventDefault();ev.stopPropagation();
+      if(i<rows.length)dropExerciseSlot(ev,Number(rows[i].dataset.dayIndex),Number(rows[i].dataset.exerciseIndex));
+    };
+    if(i<rows.length)rows[i].parentNode.insertBefore(gap,rows[i]);else box.appendChild(gap);
+  }
 }
 function dragExerciseStart(e,di,ei){
   e.stopPropagation();
@@ -1771,10 +2670,12 @@ function dragOverExercise(e){
   clearDropIndicators();
   e.currentTarget.classList.add('drag-over');
 }
-function dragOverDay(e){
-  e.preventDefault(); e.stopPropagation();
+function dragOverDayZone(e){
+  if(!__dayDrag)return;
+  e.preventDefault();e.stopPropagation();
   e.dataTransfer.dropEffect='move';
-  e.currentTarget.classList.add('drag-over');
+  document.querySelectorAll('#daysEditor .day-order-zone').forEach(z=>z.classList.remove('day-order-zone-active'));
+  e.currentTarget.classList.add('day-order-zone-active');
 }
 function dropExerciseAt(e,targetDay,targetIndex){
   e.preventDefault(); e.stopPropagation();
@@ -1799,24 +2700,107 @@ function dropExerciseAt(e,targetDay,targetIndex){
 function dropExercise(e,targetDay,targetIndex){
   dropExerciseAt(e,targetDay,targetIndex);
 }
-function dropDay(e,target){
-  e.preventDefault(); e.stopPropagation();
-  if(!__dragItem || __dragItem.type!=='day')return;
-  const from=__dragItem.i;
-  if(from!==target){
-    const [x]=editDays.splice(from,1);
-    let at=target;
-    if(from<target)at--;
-    editDays.splice(Math.max(0,at),0,x);
-    editDays.forEach((d,i)=>d.day_order=i);
-  }
-  __dragItem=null;
-  clearDropIndicators();
-  renderEditor();
+function dropDayAt(e,targetIndex){
+  if(!__dayDrag)return;
+  e.preventDefault();e.stopPropagation();
+  const from=Number(__dayDrag.index),to=Number(targetIndex);
+  if(from===to||from+1===to){dragEndItem();return;}
+  const next=editDays.slice();
+  const [item]=next.splice(from,1);
+  const at=from<to?to-1:to;
+  next.splice(Math.max(0,Math.min(at,next.length)),0,item);
+  editDays=next.map((d,i)=>({...d,day_order:i}));
+  dragEndItem();renderEditor();
 }
 function dragEndItem(){
-  clearDropIndicators();
-  __dragItem=null;
+  document.querySelectorAll('#daysEditor .routine-editor-day,#daysEditor .routine-editor-exercise')
+    .forEach(x=>x.classList.remove('dragging'));
+  document.querySelectorAll('#daysEditor .day-order-zone')
+    .forEach(x=>x.classList.remove('day-order-zone-active'));
+  document.querySelectorAll('#daysEditor .day-order-gap,#daysEditor .exercise-drop-gap')
+    .forEach(x=>x.remove());
+  __dragItem=null;__dayDrag=null;
+}
+
+function dragRoutineStart(e,index){
+  e.stopPropagation();
+  __routineDrag={index};
+  e.dataTransfer.effectAllowed='move';
+  e.dataTransfer.setData('text/plain','routine:'+index);
+  e.currentTarget.closest('.routine-sortable')?.classList.add('dragging');
+}
+function dragRoutineEnd(){
+  document.querySelectorAll('#mine .routine-sortable').forEach(c=>c.classList.remove('drag-over','dragging'));
+  document.querySelectorAll('#mine .routine-order-zone').forEach(z=>z.classList.remove('routine-order-zone-active'));
+  __routineDrag=null;
+}
+function dragOverRoutineZone(e){
+  if(!__routineDrag)return;
+  e.preventDefault();
+  e.stopPropagation();
+  e.dataTransfer.dropEffect='move';
+  document.querySelectorAll('#mine .routine-order-zone').forEach(z=>z.classList.remove('routine-order-zone-active'));
+  e.currentTarget.classList.add('routine-order-zone-active');
+}
+function dragOverRoutineCard(e){
+  if(!__routineDrag)return;
+  e.preventDefault();
+  e.stopPropagation();
+  e.dataTransfer.dropEffect='move';
+  document.querySelectorAll('#mine .routine-sortable').forEach(c=>c.classList.remove('drag-over'));
+  e.currentTarget.classList.add('drag-over');
+}
+function dropRoutineOnCard(e,targetIndex){
+  if(!__routineDrag)return;
+  e.preventDefault();
+  e.stopPropagation();
+  const rect=e.currentTarget.getBoundingClientRect();
+  const before=e.clientY < rect.top + rect.height/2;
+  reorderRoutine(__routineDrag.index,before?targetIndex:targetIndex+1);
+  __routineDrag=null;
+}
+async function dropRoutineAt(e,targetIndex){
+  if(!__routineDrag)return;
+  e.preventDefault();
+  e.stopPropagation();
+  const from=__routineDrag.index;
+  __routineDrag=null;
+  await reorderRoutine(from,targetIndex);
+}
+async function reorderRoutine(from,targetIndex){
+  if(from<0 || from>=routines.length)return;
+
+  const previous=routines.slice();
+  const copy=routines.slice();
+  const [item]=copy.splice(from,1);
+  let at=targetIndex;
+  if(from<at)at--;
+  at=Math.max(0,Math.min(at,copy.length));
+
+  if(at===from){renderMine();return;}
+
+  copy.splice(at,0,item);
+  routines=copy.map((r,i)=>({...r,routine_order:i}));
+  renderMine();
+
+  try{
+    // Persist all rows together. This keeps positions contiguous (0..n-1).
+    const results=await Promise.all(
+      routines.map((r,i)=>db.from('routines')
+        .update({routine_order:i})
+        .eq('id',r.id)
+        .eq('owner_id',user.id)
+        .is('deleted_at',null))
+    );
+    const failed=results.find(x=>x.error);
+    if(failed)throw failed.error;
+    toast('Orden guardado');
+  }catch(err){
+    console.error('reorderRoutine:',err);
+    routines=previous;
+    renderMine();
+    toast('No se pudo guardar el orden');
+  }
 }
 
 function moveEx(dayIndex, exerciseIndex, direction){
@@ -1829,6 +2813,44 @@ function moveEx(dayIndex, exerciseIndex, direction){
   renderEditor();
 }
 
+function dropDaySlot(e,targetIndex){
+  e.preventDefault();e.stopPropagation();
+  if(!__dragItem||__dragItem.type!=='day')return;
+  const from=__dragItem.i;
+  let to=Number(targetIndex);
+  if(from<to)to--;
+  if(from===to){dragEndItem();return}
+  const [item]=editDays.splice(from,1);
+  editDays.splice(Math.max(0,Math.min(to,editDays.length)),0,item);
+  editDays.forEach((d,i)=>d.day_order=i);
+  dragEndItem();renderEditor();
+}
+function showExerciseDropGaps(){
+  const box=document.querySelector('#daysEditor');
+  if(!box)return;
+  box.querySelectorAll('.exercise-drop-gap').forEach(x=>x.remove());
+  const rows=[...box.querySelectorAll('.routine-editor-exercise')];
+  rows.forEach(row=>{
+    const gap=document.createElement('div');
+    gap.className='exercise-drop-gap';
+    gap.ondragover=ev=>{ev.preventDefault();ev.dataTransfer.dropEffect='move';gap.classList.add('active')};
+    gap.ondragleave=()=>gap.classList.remove('active');
+    gap.ondrop=ev=>{ev.preventDefault();const d=Number(row.dataset.dayIndex),i=Number(row.dataset.exerciseIndex);dropExerciseSlot(ev,d,i)};
+    row.parentNode.insertBefore(gap,row);
+  });
+}
+function dropExerciseSlot(e,targetDay,targetIndex){
+  e.preventDefault();e.stopPropagation();
+  if(!__dragItem||__dragItem.type!=='exercise')return;
+  const source=editDays[__dragItem.di]?.exercises,target=editDays[targetDay]?.exercises;
+  if(!source||!target){dragEndItem();return}
+  const [item]=source.splice(__dragItem.ei,1);
+  let at=Number(targetIndex);
+  if(__dragItem.di===targetDay&&__dragItem.ei<at)at--;
+  target.splice(Math.max(0,Math.min(at,target.length)),0,item);
+  editDays.forEach(d=>d.exercises.forEach((x,i)=>x.exercise_order=i));
+  dragEndItem();renderEditor();
+}
 function moveDay(dayIndex, direction){
   const target=dayIndex+direction;
   if(target<0 || target>=editDays.length)return;
@@ -1899,14 +2921,42 @@ async function delRoutine(id){
   if(!confirm('¿Mover esta rutina a la papelera?'))return;
   window.__routineDeleting=true;
   try{
-    const r=await db.from('routines').update({deleted_at:new Date().toISOString()})
-      .eq('id',id).eq('owner_id',user.id).is('deleted_at',null);
+    const stamp=new Date().toISOString();
+
+    // If this is a client-assigned routine, delete only the client's copy.
+    if(profile?.role==='client'){
+      const a=await db.from('routine_assignments').update({client_deleted_at:stamp})
+        .eq('client_id',user.id)
+        .eq('trainer_routine_id',id)
+        .is('client_deleted_at',null)
+        .select('id,client_deleted_at')
+        .maybeSingle();
+      if(a.error)throw a.error;
+      if(a.data?.id){
+        await reload();
+        renderShared();
+        await renderClientTrash();
+        toast('Rutina movida a la papelera');
+        return;
+      }
+    }
+
+    // Trainer-owned routine: soft-delete the routine itself.
+    const r=await db.from('routines').update({deleted_at:stamp})
+      .eq('id',id).eq('owner_id',user.id).is('deleted_at',null)
+      .select('id,deleted_at').single();
     if(r.error)throw r.error;
-    await reload();renderMine();toast('Rutina movida a la papelera');
+    if(!r.data?.deleted_at)throw new Error('La rutina no quedó marcada como eliminada.');
+    await reload();
+    renderMine();
+    await renderTrash();
+    toast('Rutina movida a la papelera');
   }catch(e){
     console.error('delRoutine:',e);
     toast('No se pudo mover la rutina a la papelera: '+(e.message||'revisa los permisos'));
-  }finally{window.__routineDeleting=false}
+  }finally{
+    window.__routineDeleting=false;
+  }
 }
 async function editOpenRoutine(){
   if(profile?.role!=='trainer')return toast('Solo el entrenador puede editar la rutina.');
@@ -1922,23 +2972,481 @@ async function addSessionToOpenRoutine(){
   toast('Nueva sesión preparada. Añade los ejercicios y guarda la rutina.');
 }
 
+function editOpenRoutineNote(){
+  if(profile?.role!=='trainer'){
+    toast('Solo el entrenador puede editar la nota.');
+    return;
+  }
+  const routineId=String(window.__openRoutineId||workoutRoutine?.id||'');
+  if(!routineId){toast('Rutina no encontrada.');return;}
+  const routine=(routines||[]).find(x=>String(x.id)===routineId)||workoutRoutine;
+  const input=$('routineNoteInput');
+  if(!input){toast('No se pudo abrir el editor de notas.');return;}
+  input.value=String(routine?.description||'');
+  window.__editingRoutineNoteId=routineId;
+  openM('routineNoteModal');
+  const modal=$('routineNoteModal');
+  if(modal){
+    modal.style.zIndex='9999';
+    modal.classList.add('front-layer');
+  }
+  requestAnimationFrame(()=>{
+    input.focus();
+    const end=input.value.length;
+    input.setSelectionRange(end,end);
+  });
+}
+async function saveOpenRoutineNote(){
+  if(profile?.role!=='trainer')return;
+  const routineId=String(window.__editingRoutineNoteId||window.__openRoutineId||workoutRoutine?.id||'');
+  const input=$('routineNoteInput');
+  if(!routineId||!input){toast('Rutina no encontrada.');return;}
+  const description=String(input.value||'').trim();
+  if(description.length>2000){toast('La nota es demasiado larga');return;}
+  if(window.__savingRoutineNote)return;
+  window.__savingRoutineNote=true;
+  try{
+    const q=await db.from('routines').update({description})
+      .eq('id',routineId).eq('owner_id',user.id);
+    if(q.error)throw q.error;
+    const routine=(routines||[]).find(x=>String(x.id)===routineId);
+    if(routine)routine.description=description;
+    if(workoutRoutine&&String(workoutRoutine.id)===routineId)workoutRoutine.description=description;
+    closeM('routineNoteModal');
+    await openRoutine(routineId);
+    toast('Nota de la rutina guardada');
+  }catch(e){
+    console.error('saveOpenRoutineNote:',e);
+    toast('No se pudo guardar la nota');
+  }finally{
+    window.__savingRoutineNote=false;
+  }
+}
 async function openRoutine(id){
-  const r=routines.find(x=>x.id===id); workoutRoutine=r;
+  window.__openRoutineId=String(id);
+  let r=routines.find(x=>String(x.id)===String(id));
+  if(!r){
+    const rq=await db.from('routines')
+      .select('id,name,description,share_code,source_routine_id,created_at,deleted_at,routine_order')
+      .eq('id',id).eq('owner_id',user.id).is('deleted_at',null).maybeSingle();
+    if(rq.error){
+      console.error('openRoutine routine fetch:',rq.error);
+      return toast('No se pudo cargar la rutina');
+    }
+    r=rq.data;
+    if(r) routines=[...(routines||[]),r];
+  }
+  workoutRoutine=r;
   if(!r)return toast('Rutina no encontrada');
   try{
     const d=await days(id);
     $('trainTitle').textContent=r.name;
     $('trainSubtitle').textContent='Selecciona el día que vas a entrenar.';
     $('trainBody').innerHTML=d.length?`
+      <div class="card routine-note-card">
+        <div class="routine-note-head">
+          <div>
+            <div class="routine-note-title">📝 Nota de la rutina</div>
+            <div class="routine-note-text ${r.description?'':'empty-note'}">${esc(r.description||'Sin nota')}</div>
+          </div>
+          ${profile?.role==='trainer'?'<button class="btn routine-note-edit" type="button" onclick="editOpenRoutineNote()">Editar</button>':''}
+        </div>
+      </div>
       <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h3 style="margin:0">Días de entrenamiento</h3>${profile?.role==='trainer'?'<button class="btn" onclick="addSessionToOpenRoutine()">+ Añadir sesión</button>':''}</div>
-        ${d.map(x=>`<button class="btn" style="width:100%;margin:6px 0;text-align:left" onclick="startWorkoutDay('${x.id}')">
-          <b>${esc(x.name)}</b><span class="muted" style="float:right">${x.exercises.length} ejercicios</span>
-        </button>`).join('')}
+        ${profile?.role==='trainer'
+          ? d.map((x,i)=>`
+            <div class="open-day-order-zone"
+              ondragenter="dragOverOpenDayZone(event)"
+              ondragover="dragOverOpenDayZone(event)"
+              ondrop="dropOpenDayAt(event,${i})"></div>
+            <div class="open-day-row" data-open-day-index="${i}">
+              <span class="drag-handle open-day-handle"
+              
+              onpointerdown="startOpenDayPointerDrag(event,${i})"
+              title="Arrastrar sesión" aria-label="Arrastrar sesión">☷</span>
+              <button class="btn open-day-button" draggable="false"
+                ondragstart="event.preventDefault();event.stopPropagation()"
+                style="flex:1;text-align:left" onclick="startWorkoutDay('${x.id}')">
+                <b>${esc(x.name)}</b><span class="muted" style="float:right">${x.exercises.length} ejercicios</span>
+              </button>
+              <button class="btn open-day-menu" type="button" draggable="false"
+                title="Opciones de sesión" aria-label="Opciones de sesión"
+                onclick="event.preventDefault();event.stopPropagation();renameOpenDay('${x.id}')">⋯</button>
+            </div>`).join('') +
+          `<div class="open-day-order-zone open-day-order-zone-last"
+              ondragenter="dragOverOpenDayZone(event)"
+              ondragover="dragOverOpenDayZone(event)"
+              ondrop="dropOpenDayAt(event,${d.length})"></div>`
+          : d.map(x=>`<button class="btn" style="width:100%;margin:6px 0;text-align:left" onclick="startWorkoutDay('${x.id}')">
+              <b>${esc(x.name)}</b><span class="muted" style="float:right">${x.exercises.length} ejercicios</span>
+            </button>`).join('')}
       </div>`:
-      '<div class="empty">Esta rutina todavía no tiene días.</div>';
+      `<div class="card routine-note-card">
+        <div class="routine-note-head">
+          <div>
+            <div class="routine-note-title">📝 Nota de la rutina</div>
+            <div class="routine-note-text ${r.description?'':'empty-note'}">${esc(r.description||'Sin nota')}</div>
+          </div>
+          ${profile?.role==='trainer'?'<button class="btn routine-note-edit" type="button" onclick="editOpenRoutineNote()">Editar</button>':''}
+        </div>
+      </div><div class="empty">Esta rutina todavía no tiene días.</div>`;
     openM('trainModal');
   }catch(e){console.error(e);toast('No se pudo abrir la rutina')}
+}
+
+let __openDayDrag=null;
+let __openDayNativeDrag=null;
+let __openDayDragLock=false;
+
+function dragOpenDayStart(e,index){
+  e.stopPropagation();
+  const rid=String(window.__openRoutineId||'');
+  if(!rid)return;
+  __openDayNativeDrag={index:Number(index),routineId:rid};
+  try{
+    e.dataTransfer.effectAllowed='move';
+    e.dataTransfer.setData('text/plain',`simple-open-day:${index}`);
+  }catch(_){}
+  const row=e.currentTarget.closest('.open-day-row');
+  if(row)row.classList.add('dragging');
+  document.querySelectorAll('#trainModal .open-day-order-zone')
+    .forEach(z=>z.classList.remove('open-day-order-zone-active'));
+}
+function dragOpenDayEnd(){
+  document.querySelectorAll('#trainModal .open-day-row')
+    .forEach(r=>r.classList.remove('dragging'));
+  document.querySelectorAll('#trainModal .open-day-order-zone')
+    .forEach(z=>z.classList.remove('open-day-order-zone-active'));
+  __openDayNativeDrag=null;
+}
+function dragOverOpenDayZone(e){
+  if(!__openDayNativeDrag)return;
+  e.preventDefault();
+  e.stopPropagation();
+  try{e.dataTransfer.dropEffect='move'}catch(_){}
+  document.querySelectorAll('#trainModal .open-day-order-zone')
+    .forEach(z=>z.classList.remove('open-day-order-zone-active'));
+  e.currentTarget.classList.add('open-day-order-zone-active');
+}
+async function dropOpenDayAt(e,targetIndex){
+  if(!__openDayNativeDrag)return;
+  e.preventDefault();
+  e.stopPropagation();
+  const drag=__openDayNativeDrag;
+  const from=Number(drag.index);
+  const to=Number(targetIndex);
+  const rid=String(drag.routineId||'');
+  dragOpenDayEnd();
+  if(!rid||!Number.isInteger(from)||!Number.isInteger(to)||from===to||from+1===to)return;
+  await reorderOpenDay(rid,from,to);
+}
+
+function startOpenDayPointerDrag(e,index){
+  if(profile?.role!=='trainer'||__openDayDragLock)return;
+  e.preventDefault();
+  e.stopPropagation();
+  const h=e.currentTarget,row=h.closest('.open-day-row');
+  if(!row)return;
+  __openDayDragLock=true;
+  __openDayDrag={
+    index:Number(index),
+    startX:e.clientX,startY:e.clientY,active:false,
+    row,h,pointerId:e.pointerId,
+    routineId:String(window.__openRoutineId||'')
+  };
+  try{h.setPointerCapture(e.pointerId)}catch(_){}
+  document.addEventListener('pointermove',openDayPointerMove,{passive:false});
+  document.addEventListener('pointerup',openDayPointerUp,{passive:false});
+  document.addEventListener('pointercancel',openDayPointerCancel,{passive:false});
+}
+function openDayPointerMove(e){
+  const d=__openDayDrag;
+  if(!d||e.pointerId!==d.pointerId)return;
+  e.preventDefault();
+
+  if(!d.active){
+    if(Math.hypot(e.clientX-d.startX,e.clientY-d.startY)<5)return;
+    d.active=true;
+    d.row.classList.add('dragging');
+    document.body.classList.add('open-day-pointer-dragging');
+  }
+
+  const zones=[...document.querySelectorAll('#trainModal .open-day-order-zone')];
+  zones.forEach(z=>z.classList.remove('open-day-order-zone-active'));
+
+  const rows=[...document.querySelectorAll('#trainModal .open-day-row')];
+  let target=rows.length;
+  for(let i=0;i<rows.length;i++){
+    if(rows[i]===d.row)continue;
+    const r=rows[i].getBoundingClientRect();
+    const mid=r.top+r.height/2;
+    if(e.clientY<mid){target=i;break;}
+  }
+
+  const zone=zones[target];
+  if(zone)zone.classList.add('open-day-order-zone-active');
+}
+function openDayPointerUp(e){
+  const d=__openDayDrag;
+  if(!d||e.pointerId!==d.pointerId)return;
+  e.preventDefault();
+
+  if(!d.active){
+    finishOpenDayPointerDrag();
+    return;
+  }
+
+  const rows=[...document.querySelectorAll('#trainModal .open-day-row')];
+  const from=d.index;
+  let to=rows.length;
+
+  for(let i=0;i<rows.length;i++){
+    if(rows[i]===d.row)continue;
+    const r=rows[i].getBoundingClientRect();
+    if(e.clientY<r.top+r.height/2){to=i;break;}
+  }
+
+  const rid=d.routineId;
+  finishOpenDayPointerDrag();
+
+  if(rid&&Number.isInteger(from)&&Number.isInteger(to)&&from!==to&&from+1!==to){
+    reorderOpenDay(rid,from,to);
+  }
+}
+function openDayPointerCancel(){finishOpenDayPointerDrag()}
+function finishOpenDayPointerDrag(){
+  document.querySelectorAll('#trainModal .open-day-row')
+    .forEach(r=>r.classList.remove('dragging','open-day-drag-over'));
+  document.querySelectorAll('#trainModal .open-day-order-zone')
+    .forEach(z=>z.classList.remove('open-day-order-zone-active'));
+  document.body.classList.remove('open-day-pointer-dragging');
+
+  const d=__openDayDrag;
+  if(d?.h&&d.pointerId!=null){
+    try{d.h.releasePointerCapture(d.pointerId)}catch(_){}
+  }
+  document.removeEventListener('pointermove',openDayPointerMove);
+  document.removeEventListener('pointerup',openDayPointerUp);
+  document.removeEventListener('pointercancel',openDayPointerCancel);
+  __openDayDrag=null;
+  __openDayDragLock=false;
+}
+async function renameOpenDay(dayId){
+  if(profile?.role!=='trainer'||!workoutRoutine?.id)return;
+  try{
+    const current=await db.from('routine_days').select('name')
+      .eq('id',dayId).eq('routine_id',workoutRoutine.id).single();
+    if(current.error)throw current.error;
+    const next=prompt('Nombre de la sesión:',String(current.data?.name||''));
+    if(next===null)return;
+    const name=next.trim();
+    if(!name)return toast('El nombre no puede estar vacío');
+    if(name.length>80)return toast('El nombre es demasiado largo');
+    const q=await db.from('routine_days').update({name})
+      .eq('id',dayId).eq('routine_id',workoutRoutine.id);
+    if(q.error)throw q.error;
+    await openRoutine(workoutRoutine.id);
+    toast('Sesión renombrada');
+  }catch(e){console.error('renameOpenDay:',e);toast('No se pudo cambiar el nombre');}
+}
+async function reorderOpenDay(routineId,from,targetIndex){
+  if(window.__openDayReordering)return;
+  window.__openDayReordering=true;
+  try{
+    const current=await days(routineId);
+    if(!Array.isArray(current)||from<0||from>=current.length)throw new Error('Índice inválido');
+    const copy=current.slice(),[item]=copy.splice(from,1);
+    let at=Math.max(0,Math.min(Number(targetIndex)||0,copy.length));
+    if(from<at)at--;
+    if(at===from)return;
+    copy.splice(at,0,item);
+    for(let i=0;i<copy.length;i++){
+      const q=await db.from('routine_days').update({day_order:10000+i})
+        .eq('id',copy[i].id).eq('routine_id',routineId);
+      if(q.error)throw q.error;
+    }
+    for(let i=0;i<copy.length;i++){
+      const q=await db.from('routine_days').update({day_order:i})
+        .eq('id',copy[i].id).eq('routine_id',routineId);
+      if(q.error)throw q.error;
+    }
+    const verify=await days(routineId);
+    if((verify||[]).map(x=>String(x.id)).join('|')!==copy.map(x=>String(x.id)).join('|'))
+      throw new Error('Orden de sesiones no verificado');
+    await openRoutine(routineId);
+    toast('Orden de sesiones guardado');
+  }catch(e){console.error('reorderOpenDay:',e);toast('No se pudo guardar el orden');}
+  finally{window.__openDayReordering=false;}
+}
+
+
+let __editorPointerDrag=null;
+let __editorDragRaf=0;
+let __editorLastY=0;
+
+function editorDragCleanup(){
+  if(__editorDragRaf){cancelAnimationFrame(__editorDragRaf);__editorDragRaf=0;}
+  const d=__editorPointerDrag;
+  if(!d)return;
+  d.placeholder?.remove();
+  d.row?.classList.remove('dragging');
+  document.body.classList.remove('editor-pointer-dragging');
+  if(d.h&&d.pointerId!=null){try{d.h.releasePointerCapture(d.pointerId)}catch(_){}}
+  document.removeEventListener('pointermove',editorPointerMove);
+  document.removeEventListener('pointerup',editorPointerUp);
+  document.removeEventListener('pointercancel',editorPointerCancel);
+  __editorPointerDrag=null;
+}
+
+function editorMakePlaceholder(type,height){
+  const p=document.createElement('div');
+  p.className='editor-drag-placeholder';
+  p.dataset.type=type;
+  p.style.height=Math.max(46,height||46)+'px';
+  return p;
+}
+
+function startEditorPointerDrag(e,type,di,ei){
+  if(profile?.role!=='trainer'||__editorPointerDrag)return;
+  if(e.pointerType!=='touch' && e.pointerType!=='pen')return;
+  e.preventDefault();e.stopPropagation();
+
+  const h=e.currentTarget;
+  const row=h.closest('.routine-editor-day,.routine-editor-exercise');
+  if(!row)return;
+
+  const p=editorMakePlaceholder(type,row.getBoundingClientRect().height);
+  row.parentNode.insertBefore(p,row);
+
+  __editorPointerDrag={
+    type,di:Number(di),ei:ei==null?null:Number(ei),
+    h,row,placeholder:p,pointerId:e.pointerId,
+    startX:e.clientX,startY:e.clientY,lastY:e.clientY,
+    active:false,target:null
+  };
+
+  try{h.setPointerCapture(e.pointerId)}catch(_){}
+  document.addEventListener('pointermove',editorPointerMove,{passive:false});
+  document.addEventListener('pointerup',editorPointerUp,{passive:false});
+  document.addEventListener('pointercancel',editorPointerCancel,{passive:false});
+}
+
+function editorPointerMove(e){
+  const d=__editorPointerDrag;
+  if(!d||e.pointerId!==d.pointerId)return;
+  e.preventDefault();
+  d.lastY=e.clientY;
+  __editorLastY=e.clientY;
+
+  if(!d.active){
+    if(Math.hypot(e.clientX-d.startX,e.clientY-d.startY)<6)return;
+    d.active=true;
+    d.row.classList.add('dragging');
+    document.body.classList.add('editor-pointer-dragging');
+  }
+
+  // Throttle DOM measurement/reordering to one frame. This avoids lag on
+  // mobile Safari/Chrome caused by doing many getBoundingClientRect calls
+  // per touch event.
+  if(__editorDragRaf)return;
+  __editorDragRaf=requestAnimationFrame(()=>{
+    __editorDragRaf=0;
+    const d=__editorPointerDrag;
+    if(!d)return;
+
+    if(d.type==='day'){
+      const cards=[...document.querySelectorAll('#daysEditor .routine-editor-day')].filter(x=>x!==d.row);
+      let before=null,best=Infinity;
+      for(const card of cards){
+        const r=card.getBoundingClientRect();
+        const dist=Math.abs(__editorLastY-(r.top+r.height/2));
+        if(dist<best){best=dist;before=card}
+      }
+      if(before)before.parentNode.insertBefore(d.placeholder,before);
+      else if(cards.length)cards[cards.length-1].parentNode.insertBefore(d.placeholder,cards[cards.length-1].nextSibling);
+      d.target=before?Number(before.dataset.dayIndex):editDays.length;
+    }else{
+      const rows=[...document.querySelectorAll('#daysEditor .routine-editor-exercise')].filter(x=>x!==d.row);
+      let target=null,best=Infinity;
+      for(const row of rows){
+        const r=row.getBoundingClientRect();
+        if(__editorLastY<r.top-12||__editorLastY>r.bottom+12)continue;
+        const dist=Math.abs(__editorLastY-(r.top+r.height/2));
+        if(dist<best){best=dist;target=row}
+      }
+      if(target){
+        const r=target.getBoundingClientRect();
+        const before=__editorLastY<r.top+r.height/2;
+        if(before)target.parentNode.insertBefore(d.placeholder,target);
+        else target.parentNode.insertBefore(d.placeholder,target.nextSibling);
+        d.target={day:Number(target.dataset.dayIndex),index:Number(target.dataset.exerciseIndex),before};
+      }
+    }
+  });
+}
+
+function editorPointerUp(e){
+  const d=__editorPointerDrag;
+  if(!d||e.pointerId!==d.pointerId)return;
+  e.preventDefault();
+
+  if(__editorDragRaf){
+    cancelAnimationFrame(__editorDragRaf);
+    __editorDragRaf=0;
+  }
+
+  // Recalculate once at the final pointer position before committing.
+  if(d.active){
+    const fake={pointerId:d.pointerId,clientX:e.clientX,clientY:e.clientY};
+    editorPointerMove(fake);
+    if(__editorDragRaf){
+      cancelAnimationFrame(__editorDragRaf);
+      __editorDragRaf=0;
+    }
+  }
+
+  const result={active:d.active,type:d.type,di:d.di,ei:d.ei,target:d.target};
+  editorDragCleanup();
+
+  if(!result.active)return;
+
+  if(result.type==='day'){
+    moveEditorDay(result.di,result.target==null?editDays.length:result.target);
+  }else if(result.target){
+    moveEditorExercise(
+      result.di,result.ei,result.target.day,
+      result.target.index+(result.target.before?0:1)
+    );
+  }
+}
+
+function editorPointerCancel(){editorDragCleanup()}
+
+function moveEditorDay(from,to){
+  if(from<0||from>=editDays.length)return;
+  to=Math.max(0,Math.min(to,editDays.length));
+  if(to===from||to===from+1)return;
+  const [item]=editDays.splice(from,1);
+  if(from<to)to--;
+  editDays.splice(to,0,item);
+  editDays.forEach((d,i)=>d.day_order=i);
+  renderEditor();
+}
+
+function moveEditorExercise(fd,fi,td,ti){
+  const source=editDays[fd]?.exercises;
+  const target=editDays[td]?.exercises;
+  if(!source||!target||fi<0||fi>=source.length)return;
+
+  const [item]=source.splice(fi,1);
+  let at=ti;
+  if(fd===td&&fi<at)at--;
+  at=Math.max(0,Math.min(at,target.length));
+  target.splice(at,0,item);
+
+  editDays.forEach(d=>d.exercises.forEach((x,i)=>x.exercise_order=i));
+  renderEditor();
 }
 
 let activeWorkout={day:null,exercises:[],sets:{}};
@@ -2158,6 +3666,7 @@ async function saveEditedWorkout(id){
   }
 }
 function showHistory(){
+  window.__editingWorkout=null;
   const h=window.workoutHistory||[];
   $('trainTitle').textContent='Historial';
   $('trainSubtitle').textContent='Tus sesiones guardadas';
@@ -2370,7 +3879,9 @@ async function startWorkoutDay(dayId){
       exercises:x.data||[],
       sets:{},
       locked:false,
-      lockedSession:null
+      lockedSession:null,
+      editing:false,
+      reordering:false
     };
 
     // Observaciones persistentes DEL USUARIO, nunca escribiendo sobre
@@ -2454,6 +3965,23 @@ function workoutDraftKey(){
     ? `simple_workout_draft_v2:${user.id}:${workoutRoutine.id}:${activeWorkout.day.id}`
     : null;
 }
+
+// Marca cuándo se completó por última vez este día de rutina.
+// Sirve para impedir que un borrador viejo vuelva a rellenar KG/REPS/RIR
+// cuando empieza el siguiente ciclo de entrenamiento.
+function workoutCompletionKey(){
+  return user?.id && workoutRoutine?.id && activeWorkout?.day?.id
+    ? `simple_workout_completed_v1:${user.id}:${workoutRoutine.id}:${activeWorkout.day.id}`
+    : null;
+}
+function markWorkoutCompleted(){
+  const key=workoutCompletionKey();
+  if(!key)return;
+  try{
+    localStorage.setItem(key,String(Date.now()));
+  }catch(_){ }
+}
+
 function saveWorkoutDraft(){
   const key=workoutDraftKey();
   if(!key)return;
@@ -2482,6 +4010,16 @@ function loadWorkoutDraft(){
     if(!raw)return false;
     const draft=JSON.parse(raw);
     if(!draft?.sets)return false;
+
+    // Un borrador solo puede recuperar una sesión que siga pendiente.
+    // Si ya se completó ese día después de crear el borrador, se descarta.
+    const completedKey=workoutCompletionKey();
+    const completedAt=completedKey ? Number(localStorage.getItem(completedKey)||0) : 0;
+    const draftSavedAt=Number(draft.savedAt||0);
+    if(completedAt && (!draftSavedAt || draftSavedAt <= completedAt)){
+      localStorage.removeItem(key);
+      return false;
+    }
     for(const e of activeWorkout.exercises){
       const base=Array.from({length:e.sets||1},()=>({kg:'',reps:'',rir:'',done:false}));
       const rawSaved=draft.sets?.[e.id];
@@ -2512,6 +4050,8 @@ function loadWorkoutDraft(){
   }catch(e){console.warn('No se pudo recuperar el borrador:',e);return false;}
 }
 function clearWorkoutDraft(){
+  // KG, REPS y RIR pertenecen a la sesión actual.
+  // El borrador solo existe mientras una sesión está sin guardar.
   const key=workoutDraftKey();
   if(key)try{localStorage.removeItem(key);}catch(_){}
 }
@@ -2562,77 +4102,80 @@ function formatStipulatedRest(e){
   const min=Math.floor(sec/60), rem=sec%60;
   return rem?`${min}:${String(rem).padStart(2,'0')}`:`${min}'`;
 }
-function applyPresetLoads(exercise, state){
-  // Las cargas predefinidas pertenecen únicamente a la rutina PPL-UL / VLC.
-  // XTV y UPPER-LOWER-FULL BODY empiezan KG/REPS/RIR vacíos.
-  const routineName=String(workoutRoutine?.name||'').trim().toLowerCase();
-  if(!routineName.includes('vlc'))return false;
-
-  const preset=routinePresetForExercise(exercise?.name);
-  if(!preset?.sets?.length)return false;
-  let changed=false;
-  // Only prefill empty fields, so an existing saved draft is never overwritten.
-  preset.sets.forEach((v,i)=>{
-    if(!state[i])return;
-    if(state[i].kg==='' && v.kg!==''){state[i].kg=v.kg;changed=true;}
-    if(state[i].reps==='' && v.reps!==''){state[i].reps=v.reps;changed=true;}
-  });
-  return changed;
-}
+function applyPresetLoads(){ return false; }
 
 function renderWorkoutDay(){
-  const exs=activeWorkout.exercises;
-  const locked=!!activeWorkout.locked;
-  if(!exs.length){
-    $('trainBody').innerHTML='<div class="empty">Este día no tiene ejercicios.</div>';
-    return;
-  }
-  $('trainBody').innerHTML=exs.map((e)=>{
-    const key=e.id;
-    const state=activeWorkout.sets[key]||Array.from({length:e.sets||1},()=>({kg:'',reps:'',rir:'',done:false}));
-    const presetChanged=applyPresetLoads(e,state);
+  const exs=activeWorkout.exercises||[],locked=!!activeWorkout.locked;
+  const trainer=profile?.role==='trainer',editing=!!activeWorkout.editing,reordering=!!activeWorkout.reordering;
+  if(!exs.length){$('trainBody').innerHTML='<div class="empty">Este día no tiene ejercicios.</div>';return;}
+
+  const controls=trainer?`
+    <div class="workout-session-actions">
+      <button class="btn ${editing?'primary':''}" onclick="${editing?'saveWorkoutRoutineEdits()':'toggleWorkoutEditMode()'}">${editing?'Guardar cambios':'Editar'}</button>
+      <button class="btn ${editing?'':'reorder-only'}" ${editing?'onclick="addWorkoutExercise()"':'disabled'}>+ Añadir ejercicio</button>
+      ${!reordering?'<button class="btn" onclick="toggleWorkoutReorderMode()">Reordenar</button>':''}
+    </div>`:'';
+
+  const normal=exs.map((e,ei)=>{
+    const key=e.id,state=activeWorkout.sets[key]||Array.from({length:e.sets||1},()=>({kg:'',reps:'',rir:'',done:false}));
     activeWorkout.sets[key]=state;
-    if(presetChanged) saveWorkoutDraft();
-    const plannedRir=(e.rir!==null&&e.rir!==undefined&&e.rir!=='')?e.rir:'0';
-    const disabledAttr=locked?' disabled readonly':'';
+    const planned=(e.rir!==null&&e.rir!==undefined&&e.rir!=='')?e.rir:'0';
+    const dis=locked?' disabled readonly':'';
     return `<div class="card">
-      <div class="dayhead">
-        <div style="min-width:0;width:100%">
-          <b>${esc(e.name)}</b>
-          <div class="history-objective" style="margin-top:5px">
-            Objetivo: ${esc(e.target||'—')} · ${e.sets||1} series · ${esc(formatStipulatedRest(e))} · RIR ${esc(String(plannedRir))}
-          </div>
-          ${renderPreviousSession(e.id)}
-        </div>
-      </div>
+      <div class="dayhead"><div style="min-width:0;width:100%">
+        ${editing?`<input class="workout-edit-name" value="${esc(e.name)}" onchange="editWorkoutExerciseField('${key}','name',this.value)">`:`<b>${esc(e.name)}</b>`}
+        <div class="history-objective" style="margin-top:5px">Objetivo: ${esc(e.target||'—')} · ${e.sets||1} series · ${esc(formatStipulatedRest(e))} · RIR ${esc(String(planned))}</div>
+        ${renderPreviousSession(e.id)}
+      </div></div>
       <div style="margin-top:10px">
-        <div class="setrow" style="font-size:11px;color:var(--muted)">
-          <span>Serie</span><span>KG</span><span>REPS</span><span>RIR</span><span>✓</span>
+        <div class="setrow" style="font-size:11px;color:var(--muted)"><span>Serie</span><span>KG</span><span>REPS</span><span>RIR</span><span>✓</span></div>
+        ${state.map((st,si)=>`<div class="setrow">
+          <span>${si+1}</span>
+          <input inputmode="decimal" placeholder="0" value="${esc(st.kg)}"${dis} oninput="updateSet('${key}',${si},'kg',this.value)">
+          <input inputmode="numeric" placeholder="0" value="${esc(st.reps)}"${dis} oninput="updateSet('${key}',${si},'reps',this.value)">
+          <input inputmode="numeric" placeholder="0" min="0" max="10" value="${esc(st.rir)}"${dis} oninput="updateSet('${key}',${si},'rir',this.value)">
+          <button class="tick ${st.done?'done':''}"${locked?' disabled':''} onclick="toggleSet('${key}',${si})">${st.done?'✓':'○'}</button>
+          ${editing?`<button class="set-remove" type="button" onclick="removeWorkoutSet('${key}',${si})">×</button>`:''}
+        </div>`).join('')}
+      </div>
+      ${editing?`<div class="workout-edit-row workout-edit-fields">
+        <div class="workout-edit-field">
+          <label>Objetivo de reps</label>
+          <input type="text" value="${esc(e.target||'')}" placeholder="2x10-15" onchange="editWorkoutExerciseField('${key}','target',this.value)">
         </div>
-        ${state.map((s,si)=>`
-          <div class="setrow">
-            <span>${si+1}</span>
-            <input inputmode="decimal" placeholder="0" value="${esc(s.kg)}"${disabledAttr} oninput="updateSet('${key}',${si},'kg',this.value)">
-            <input inputmode="numeric" placeholder="0" value="${esc(s.reps)}"${disabledAttr} oninput="updateSet('${key}',${si},'reps',this.value)">
-            <input inputmode="numeric" placeholder="0" min="0" max="10" value="${esc(s.rir)}"${disabledAttr} oninput="updateSet('${key}',${si},'rir',this.value)">
-            <button class="tick ${s.done?'done':''}"${locked?' disabled':''} onclick="toggleSet('${key}',${si})">${s.done?'✓':'○'}</button>
-          </div>`).join('')}
-      </div>
-      <div style="margin-top:12px">
-        <label>Notas del ejercicio</label>
-        <textarea placeholder="Escribe aquí..."${disabledAttr} oninput="updateExerciseNote('${key}',this.value)">${esc(state.note||'')}</textarea>
-      </div>
-      ${locked ? '<div class="muted" style="margin-top:12px">Sesión guardada hoy · solo lectura</div>' : `
-      <div class="rest-buttons">
-        <span class="muted">Descanso</span>
-        ${[1,2,3,4,5].map(m=>`<button class="btn" onclick="startRestTimer(${m*60})">${m}'</button>`).join('')}
-      </div>`}
+        <div class="workout-edit-field">
+          <label>RIR previsto</label>
+          <input inputmode="numeric" min="0" max="10" value="${esc(e.rir??'')}" onchange="editWorkoutExerciseField('${key}','rir',this.value)">
+        </div>
+        <button class="btn" type="button" onclick="addWorkoutSet('${key}')">+ Añadir serie</button>
+      </div>`:''}
+      <div style="margin-top:12px"><label>Notas del ejercicio</label>
+        <textarea placeholder="Escribe aquí..."${dis} oninput="updateExerciseNote('${key}',this.value)">${esc(state.note||'')}</textarea></div>
+      ${locked?'<div class="muted" style="margin-top:12px">Sesión guardada hoy · solo lectura</div>':`
+        <div class="rest-buttons"><span class="muted">Descanso</span>${[1,2,3,4,5].map(m=>`<button class="btn" onclick="startRestTimer(${m*60})">${m}'</button>`).join('')}</div>`}
     </div>`;
-  }).join('')+`
-    <div id="restBox" class="rest-floating" style="display:none"></div>
-    ${locked ? '' : `<div class="buttons" style="justify-content:flex-end">
-      <button class="btn primary" onclick="saveWorkoutSession()">Guardar sesión</button>
-    </div>`}`;
+  }).join('');
+
+  const reorder=reordering?`
+    <div class="workout-reorder-list">
+      <div class="workout-reorder-zone" ondragover="workoutReorderOver(event)" ondrop="workoutReorderDrop(event,0)"></div>
+      ${exs.map((e,i)=>`<div class="card workout-reorder-bar">
+        <span class="workout-reorder-handle"
+          onpointerdown="workoutReorderStart(event,${i})">☷</span>
+        <b>${esc(e.name)}</b><span class="muted">${e.sets||1} series</span>
+      </div>
+      <div class="workout-reorder-zone" ondragover="workoutReorderOver(event)" ondrop="workoutReorderDrop(event,${i+1})"></div>`).join('')}
+    </div>`:normal;
+
+  $('trainBody').innerHTML=controls+reorder+`<div id="restBox" class="rest-floating" style="display:none"></div>
+    ${locked?'':`<div class="buttons" style="justify-content:flex-end"><button class="btn primary" onclick="saveWorkoutSession()">Guardar sesión</button></div>`}`;
+  if(reordering){
+    workoutReorderRows=[...document.querySelectorAll('#trainModal .workout-reorder-bar')];
+    workoutReorderZones=[...document.querySelectorAll('#trainModal .workout-reorder-zone')];
+  }else{
+    workoutReorderRows=[];workoutReorderZones=[];
+  }
+
 }
 function summarizePreviousExercise(previous){
   if(!previous?.exercise)return null;
@@ -2657,6 +4200,230 @@ function summarizePreviousExercise(previous){
   return {best,totalVolume,avgRir,sets:pool.length};
 }
 
+function toggleWorkoutEditMode(){
+  if(profile?.role!=='trainer'||!activeWorkout)return;
+  activeWorkout.editing=!activeWorkout.editing;
+  if(activeWorkout.editing)activeWorkout.reordering=false;
+  renderWorkoutDay();
+}
+function toggleWorkoutReorderMode(){
+  if(profile?.role!=='trainer'||!activeWorkout)return;
+  activeWorkout.reordering=!activeWorkout.reordering;
+  if(activeWorkout.reordering)activeWorkout.editing=false;
+  renderWorkoutDay();
+}
+function editWorkoutExerciseField(id,field,value){
+  if(profile?.role!=='trainer'||!activeWorkout?.editing)return;
+  const e=activeWorkout.exercises.find(x=>String(x.id)===String(id));if(!e)return;
+  if(field==='name')e.name=String(value||'').trim()||e.name;
+  if(field==='target')e.target=String(value??'').trim();
+  if(field==='rir')e.rir=String(value??'');
+}
+function addWorkoutExercise(){
+  if(profile?.role!=='trainer'||!activeWorkout?.editing)return;
+  const name=prompt('Nombre del ejercicio:','Nuevo ejercicio');
+  if(name===null)return;
+  const clean=String(name).trim();
+  if(!clean)return toast('Pon un nombre al ejercicio');
+  const id='new-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);
+  const e={id,name:clean,sets:2,target:'2x10-15',rir:'2',rest_seconds:120,notes:''};
+  activeWorkout.exercises.push(e);
+  activeWorkout.sets[id]=Array.from({length:e.sets},()=>({kg:'',reps:'',rir:'',done:false}));
+  renderWorkoutDay();
+  toast('Ejercicio añadido. Ajusta sus series, RIR y objetivo y guarda los cambios.');
+}
+function addWorkoutSet(id){
+  if(profile?.role!=='trainer'||!activeWorkout?.editing)return;
+  const e=activeWorkout.exercises.find(x=>String(x.id)===String(id)),arr=activeWorkout.sets[id];
+  if(!e||!arr)return;arr.push({kg:'',reps:'',rir:'',done:false});e.sets=arr.length;renderWorkoutDay();
+}
+function removeWorkoutSet(id,index){
+  if(profile?.role!=='trainer'||!activeWorkout?.editing)return;
+  const e=activeWorkout.exercises.find(x=>String(x.id)===String(id)),arr=activeWorkout.sets[id];
+  if(!e||!arr||arr.length<=1)return toast('Debe quedar al menos una serie');
+  arr.splice(index,1);e.sets=arr.length;renderWorkoutDay();
+}
+async function saveWorkoutRoutineEdits(){
+  if(profile?.role!=='trainer'||!activeWorkout?.day?.id||window.__savingRoutineEdits)return;
+  window.__savingRoutineEdits=true;
+  try{
+    for(let i=0;i<activeWorkout.exercises.length;i++){
+      const e=activeWorkout.exercises[i];
+      const payload={
+        day_id:activeWorkout.day.id,
+        name:String(e.name||'').trim(),
+        sets:Math.max(1,Number(e.sets)||1),
+        target:e.target||'',
+        rir:e.rir===''||e.rir==null?null:Number(e.rir),
+        rest_seconds:Math.max(0,Number(e.rest_seconds)||0),
+        exercise_order:i,
+        notes:e.notes||null
+      };
+      let q;
+      if(String(e.id).startsWith('new-')){
+        q=await db.from('routine_exercises').insert(payload).select().single();
+        if(q.error)throw q.error;
+        e.id=q.data.id;
+        const oldSets=activeWorkout.sets['new-'+i]||activeWorkout.sets[e.id];
+        if(!activeWorkout.sets[e.id])
+          activeWorkout.sets[e.id]=Array.from({length:e.sets},()=>({kg:'',reps:'',rir:'',done:false}));
+      }else{
+        q=await db.from('routine_exercises').update(payload)
+          .eq('id',e.id).eq('day_id',activeWorkout.day.id);
+        if(q.error)throw q.error;
+      }
+    }
+    activeWorkout.editing=false;
+    toast('Cambios guardados');
+    await startWorkoutDay(activeWorkout.day.id);
+  }catch(e){
+    console.error('saveWorkoutRoutineEdits:',e);
+    toast('No se pudieron guardar los cambios');
+  }finally{window.__savingRoutineEdits=false;}
+}
+
+let workoutReorderRows=[];
+let workoutReorderZones=[];
+let __workoutReorderDrag=null;
+function workoutReorderStart(e,index){
+  if(!activeWorkout?.reordering)return;
+  e.preventDefault();e.stopPropagation();
+  const handle=e.currentTarget;
+  const row=handle.closest('.workout-reorder-bar');
+  if(!row)return;
+  __workoutReorderDrag={
+    index:Number(index),handle,row,startX:e.clientX,startY:e.clientY,
+    active:false,pointerId:e.pointerId,zone:null,raf:0
+  };
+  try{handle.setPointerCapture(e.pointerId)}catch(_){}
+  document.addEventListener('pointermove',workoutReorderPointerMove,{passive:false});
+  document.addEventListener('pointerup',workoutReorderPointerUp,{passive:false});
+  document.addEventListener('pointercancel',workoutReorderPointerCancel,{passive:false});
+}
+function workoutReorderEnd(){
+  const d=__workoutReorderDrag;
+  if(d?.raf)cancelAnimationFrame(d.raf);
+  document.querySelectorAll('.workout-reorder-bar').forEach(x=>x.classList.remove('dragging'));
+  document.querySelectorAll('.workout-reorder-zone').forEach(x=>x.classList.remove('active'));
+  document.removeEventListener('pointermove',workoutReorderPointerMove);
+  document.removeEventListener('pointerup',workoutReorderPointerUp);
+  document.removeEventListener('pointercancel',workoutReorderPointerCancel);
+  if(d?.handle&&d.pointerId!=null){try{d.handle.releasePointerCapture(d.pointerId)}catch(_){}}
+  __workoutReorderDrag=null;
+}
+function workoutReorderPointerMove(e){
+  const d=__workoutReorderDrag;
+  if(!d||e.pointerId!==d.pointerId)return;
+  e.preventDefault();
+  if(!d.active){
+    if(Math.hypot(e.clientX-d.startX,e.clientY-d.startY)<5)return;
+    d.active=true;d.row.classList.add('dragging');
+  }
+  if(d.raf)return;
+  d.lastY=e.clientY;
+  d.raf=requestAnimationFrame(()=>{
+    d.raf=0;
+    const zones=workoutReorderZones||[];
+    let target=zones.length-1;
+    const rows=workoutReorderRows||[];
+    for(let i=0;i<rows.length;i++){
+      if(i===d.index)continue;
+      const r=rows[i].getBoundingClientRect();
+      if(d.lastY<r.top+r.height/2){target=i;break;}
+    }
+    const z=zones[target];
+    if(z!==d.zone){
+      if(d.zone)d.zone.classList.remove('active');
+      d.zone=z||null;
+      if(d.zone)d.zone.classList.add('active');
+    }
+  });
+}
+async function workoutReorderPointerUp(e){
+  const d=__workoutReorderDrag;
+  if(!d||e.pointerId!==d.pointerId)return;
+  e.preventDefault();
+  if(!d.active){workoutReorderEnd();return;}
+  const rows=workoutReorderRows||[];
+  let target=rows.length;
+  for(let i=0;i<rows.length;i++){
+    if(i===d.index)continue;
+    const r=rows[i].getBoundingClientRect();
+    if(e.clientY<r.top+r.height/2){target=i;break;}
+  }
+  const from=d.index;
+  workoutReorderEnd();
+  if(from!==target&&from+1!==target)await workoutReorderCommit(from,target);
+}
+function workoutReorderPointerCancel(){workoutReorderEnd();}
+async function workoutReorderCommit(from,to){
+  if(window.__workoutExerciseReordering)return;
+  window.__workoutExerciseReordering=true;
+  try{
+    const next=activeWorkout.exercises.slice();
+    const [item]=next.splice(from,1);
+    const at=Math.max(0,Math.min(from<to?to-1:to,next.length));
+    next.splice(at,0,item);
+    for(let i=0;i<next.length;i++){
+      const q=await db.from('routine_exercises').update({exercise_order:10000+i}).eq('id',next[i].id).eq('day_id',activeWorkout.day.id);
+      if(q.error)throw q.error;
+    }
+    for(let i=0;i<next.length;i++){
+      const q=await db.from('routine_exercises').update({exercise_order:i}).eq('id',next[i].id).eq('day_id',activeWorkout.day.id);
+      if(q.error)throw q.error;
+    }
+    const verify=await db.from('routine_exercises').select('id').eq('day_id',activeWorkout.day.id).order('exercise_order',{ascending:true});
+    if(verify.error)throw verify.error;
+    const ids=(verify.data||[]).map(x=>String(x.id));
+    if(ids.join('|')!==next.map(x=>String(x.id)).join('|'))throw new Error('Orden de ejercicios no verificado');
+    activeWorkout.exercises=next;
+    activeWorkout.reordering=false;
+    renderWorkoutDay();
+    toast('Guardado automáticamente');
+  }catch(err){console.error('exercise reorder:',err);toast('No se pudo guardar el orden');}
+  finally{window.__workoutExerciseReordering=false;}
+}
+function workoutReorderOver(e){
+  if(!__workoutReorderDrag)return;e.preventDefault();e.stopPropagation();
+  document.querySelectorAll('.workout-reorder-zone').forEach(x=>x.classList.remove('active'));
+  e.currentTarget.classList.add('active');
+}
+async function workoutReorderDrop(e,target){
+  if(!__workoutReorderDrag)return;
+  e.preventDefault();e.stopPropagation();
+  const from=Number(__workoutReorderDrag.index),to=Number(target);
+  workoutReorderEnd();
+  if(!Number.isInteger(from)||!Number.isInteger(to)||from===to||from+1===to)return;
+  if(window.__workoutExerciseReordering)return;
+  window.__workoutExerciseReordering=true;
+  try{
+    const next=activeWorkout.exercises.slice();
+    if(from<0||from>=next.length)throw new Error('Índice inválido');
+    const [item]=next.splice(from,1);
+    const at=Math.max(0,Math.min(from<to?to-1:to,next.length));
+    next.splice(at,0,item);
+    for(let i=0;i<next.length;i++){
+      const q=await db.from('routine_exercises').update({exercise_order:10000+i})
+        .eq('id',next[i].id).eq('day_id',activeWorkout.day.id);
+      if(q.error)throw q.error;
+    }
+    for(let i=0;i<next.length;i++){
+      const q=await db.from('routine_exercises').update({exercise_order:i})
+        .eq('id',next[i].id).eq('day_id',activeWorkout.day.id);
+      if(q.error)throw q.error;
+    }
+    const verify=await db.from('routine_exercises').select('id')
+      .eq('day_id',activeWorkout.day.id).order('exercise_order',{ascending:true});
+    if(verify.error)throw verify.error;
+    const dbIds=(verify.data||[]).map(x=>String(x.id));
+    if(dbIds.join('|')!==next.map(x=>String(x.id)).join('|'))
+      throw new Error('Orden de ejercicios no verificado');
+    activeWorkout.exercises=next;
+    renderWorkoutDay();
+    toast('Orden de ejercicios guardado');
+  }catch(err){console.error('exercise reorder:',err);toast('No se pudo guardar el orden');}
+  finally{window.__workoutExerciseReordering=false;}
+}
 function updateSet(id,i,field,value){
   if(activeWorkout.locked)return;
   const arr=activeWorkout.sets[id];
@@ -2828,6 +4595,9 @@ async function saveWorkoutSession(){
     }
 
     window.__lastSavedWorkoutKey=currentKey;
+    // La sesión acaba de terminar: cualquier borrador anterior de este
+    // mismo día queda invalidado y la próxima apertura empieza limpia.
+    markWorkoutCompleted();
     clearWorkoutDraft();
     activeWorkout.locked=true;
     activeWorkout.lockedSession=r.data||null;
@@ -2931,33 +4701,32 @@ async function createShareCode(routineId){
 
 
 async function removeSharedRoutine(assignmentId, routineName){
-  if(window.__removeSharedBusy) return;
-  const ok = confirm(
-    `¿Quieres dejar de tener "${routineName}" en tus rutinas compartidas?\n\n` +
-    `La rutina no se eliminará para el entrenador.`
-  );
-  if(!ok) return;
-
-  window.__removeSharedBusy = true;
+  if(window.__removeSharedBusy)return;
+  const ok=confirm(`¿Quieres mover "${routineName||'esta rutina'}" a la papelera?\n\nPodrás restaurarla después.`);
+  if(!ok)return;
+  window.__removeSharedBusy=true;
   try{
-    const r = await db
-      .from('routine_assignments')
-      .delete()
-      .eq('id', assignmentId)
-      .eq('client_id', user.id);
-
-    if(r.error) throw r.error;
-
-    await reload();
-    await renderShared();
-    toast('Rutina eliminada de tus rutinas compartidas');
+    const stamp=new Date().toISOString();
+    const r=await db.from('routine_assignments')
+      .update({client_deleted_at:stamp})
+      .eq('id',assignmentId).eq('client_id',user.id)
+      .is('client_deleted_at',null)
+      .select('id,trainer_routine_id,created_at,client_deleted_at').single();
+    if(r.error)throw r.error;
+    if(!r.data?.id)throw new Error('No se pudo registrar la rutina en la papelera.');
+    const key='simple_client_trash_'+user.id;
+    let cached=[];try{cached=JSON.parse(localStorage.getItem(key)||'[]')}catch(_){}
+    if(!Array.isArray(cached))cached=[];
+    localStorage.setItem(key,JSON.stringify([{...r.data},...cached.filter(x=>String(x.id)!==String(r.data.id))]));
+    await reload();await renderShared();await renderClientTrash();
+    toast('Rutina movida a la papelera');
   }catch(e){
-    console.error('remove shared routine:', e);
-    toast(e?.message || 'No se pudo eliminar la rutina.');
-  }finally{
-    window.__removeSharedBusy = false;
-  }
+    console.error('remove shared routine:',e);
+    toast(e?.message||'No se pudo mover la rutina a la papelera.');
+  }finally{window.__removeSharedBusy=false}
 }
+
+
 
 async function renderShared(){
   let h=`<div class="card">
@@ -3122,7 +4891,7 @@ document.addEventListener('DOMContentLoaded',resetPasswordVisibility);
 /* trash-tab-trainer-only-v1 */
 document.addEventListener('DOMContentLoaded',()=>{
   const b=document.getElementById('tTrash');
-  if(b && profile?.role!=='trainer') b.style.display='none';
+  if(b) b.style.display='';
 });
 </script>
 </body></html>
